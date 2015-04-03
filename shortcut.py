@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Little program to record keyboard shortcuts because there are so many."""
+
+"""Little program to record keyboard shortcuts because there are so many.
+"""
+
 import os
 import sys
 import argparse
 import json
 import readline
-
-
+*
 shortcut_list = []
 file_path = os.path.join(os.environ.get('cgData'), 'shortcuts.json')
 
@@ -77,8 +79,7 @@ class ShortcutList:
         self.data = []
 
     def find(self, shortcut):
-        :
-
+        pass
 
     def add(self, shortcuts):
         for shortcut in shortcuts:
@@ -136,7 +137,7 @@ class CustomFormatter(argparse.HelpFormatter):
                 default = action.dest.upper()
                 args_string = self._format_args(action, default)
                 for option_string in action.option_strings:
-                    #parts.append('%s %s' % (option_string, args_string))
+                    # parts.append('%s %s' % (option_string, args_string))
                     parts.append('%s' % option_string)
                 parts[-1] += ' %s'%args_string
             return ', '.join(parts)
@@ -205,28 +206,28 @@ def input_data(shortcut=None):
     insert = ' '.join(shortcut.keys) if shortcut else ''
     readline.set_startup_hook(gen_hook(insert))
     try:
-        keys = raw_input("Keys: ")
+        keys = input("Keys: ")
     except EOFError:
-        print
+        print()
     insert = ' '.join(shortcut.actions) if shortcut else ''
     readline.set_startup_hook(gen_hook(insert))
     try:
-        actions = raw_input("Actions: ")
+        actions = input("Actions: ")
     except EOFError:
-        print
+        print()
     insert = shortcut.program if shortcut else ''
     readline.set_startup_hook(gen_hook(insert))
     try:
-        programs = raw_input("Programs: ")
+        programs = input("Programs: ")
     except EOFError:
-        print
+        print()
     insert = ' '.join(shortcut.features) if shortcut else ''
     readline.set_startup_hook(gen_hook(insert))
     try:
-        features = raw_input("Features: ")
+        features = input("Features: ")
     except EOFError:
-        print
-    print keys, actions, programs, features
+        print()
+    print(keys, actions, programs, features)
 
 
 def main(argv=None):
