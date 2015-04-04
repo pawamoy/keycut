@@ -4,10 +4,11 @@ binding (configurable)
 sacred (mac, windows: standards)
 
 Notation:
-Ctrl  / ^
-Alt   / ?
-Mod   / ?
+Ctrl  / ^ / C
+Alt   / A
+Mod   / M
 Fn    / ?
-Shift / ?
+Shift / S
+Esc   / E
 
 Notations différentes entre Emacs, ViM, ...
