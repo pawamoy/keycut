@@ -13,7 +13,7 @@ import sqlite3
 
 from sqlalchemy import Column, ForeignKey, Integer, String, Boolean
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
 
 Base = declarative_base()
@@ -22,15 +22,16 @@ Base = declarative_base()
 class Shortcut(Base):
     __tablename__ = 'shortcut'
     id = Column(Integer, primary_key=True)
-    sequences = relationship('Sequence', backref='shortcuts')
-    apps = relationship('App', backref='shortcuts')
-    tags = relationship('Tag', backref='shortcuts')
-    actions = relationship('Action', backref='shortcuts')
+    sequences = relationship('Sequence')
+    actions = relationship('Action')
+    apps = relationship('App')
+    tags = relationship('Tag')
 
 
 class Sequence(Base):
     __tablename__ = 'sequence'
     id = Column(Integer, primary_key=True)
+    shortcut_id = Column(Integer, ForeignKey('shortcut.id'))
     active = Column(Boolean(), default=True)
     hotkey = Column(Boolean(), default=False)
     binding = Column(Boolean(), default=False)
@@ -42,6 +43,7 @@ class Sequence(Base):
 class App(Base):
     __tablename__ = 'app'
     id = Column(Integer, primary_key=True)
+    shortcut_id = Column(Integer, ForeignKey('shortcut.id'))
     name = Column(String(255), nullable=False)
     version = Column(String(20))
 
@@ -49,32 +51,34 @@ class App(Base):
 class Tag(Base):
     __tablename__ = 'tag'
     id = Column(Integer, primary_key=True)
+    shortcut_id = Column(Integer, ForeignKey('shortcut.id'))
     name = Column(String(30))
-
-
-class Language(Base):
-    __tablename__ = 'language'
-    id = Column(Integer, primary_key=True)
-    name = Column(String(40))
 
 
 class Action(Base):
     __tablename__ = 'action'
     id = Column(Integer, primary_key=True)
+    shortcut_id = Column(Integer, ForeignKey('shortcut.id'))
     name = Column(String(255))
-    lang = Column(Integer, ForeignKey('language.id'))
+    lang = Column(String(5))
 
 
 # Create an engine that stores data in the local directory's
 # sqlalchemy_example.db file.
-engine = create_engine('sqlite:///sqlalchemy_example.db')
+engine = create_engine('sqlite:///keycut.db')
 
+session = sessionmaker()
+session.configure(bind=engine)
 # Create all tables in the engine. This is equivalent to "Create Table"
 # statements in raw SQL.
 Base.metadata.create_all(engine)
 
-conn = sqlite3.connect('keycut.db')
-c = conn.cursor()
+s = session()
+# conn = sqlite3.connect('keycut.db')
+# c = conn.cursor()
+
+
+# s.close()
 
 # @staticmethod
 # def serializer(obj):
