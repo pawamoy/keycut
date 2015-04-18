@@ -28,7 +28,7 @@ Cursor movement:
   keys: [$]
 - action: Go To command (prefix with number)
   keys: [G]
-Insert Mode	Inserting/Appending text:
+Inserting/Appending text:
 - action: start insert mode at cursor
   keys: [i]
 - action: insert at the beginning of the line
