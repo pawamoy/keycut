@@ -1,0 +1,115 @@
+Site wide shortcuts:
+- action: Focus search bar
+  keys: [s]
+- action: Go to Notifications
+  keys: [gn]
+- action: Go to Dashboard
+  keys: [gd]
+- action: Bring up this help dialog
+  keys: ['?']
+- action: Move selection down
+  keys: [j]
+- action: Move selection up
+  keys: [k]
+- action: Toggle selection
+  keys: [x]
+- action: Open selection
+  keys: [o, enter]
+
+Repositories:
+- action: Go to Code
+  keys: [gc]
+- action: Go to Issues
+  keys: [gi]
+- action: Go to Pull Requests
+  keys: [gp]
+- action: Go to Wiki
+  keys: [gw]
+
+Source code browsing:
+- action: Activates the file finder
+  keys: [t]
+- action: Jump to line
+  keys: [l]
+- action: Switch branch/tag
+  keys: [w]
+- action: Expand URL to its canonical form
+  keys: [y]
+- action: Show/hide all inline notes
+  keys: [i]
+
+Issues:
+- action: Submit comment
+  keys: [ctrl enter]
+- action: Preview comment
+  keys: [ctrl shift p]
+- action: Go fullscreen
+  keys: [ctrl shift l]
+- action: Create issue
+  keys: [c]
+- action: Filter by or edit labels
+  keys: [l]
+- action: Filter by or edit milestones
+  keys: [m]
+- action: Filter by or edit assignee
+  keys: [a]
+- action: Reply (quoting selected text)
+  keys: [r]
+
+Browsing commits:
+- action: Submit comment
+  keys: [ctrl enter]
+- action: Close form
+  keys: [escape]
+- action: Parent commit
+  keys: [p]
+- action: Other parent commit
+  keys: [o]
+
+Commit list:
+- action: Expand URL to its canonical form
+  keys: [y]
+
+Dashboards:
+- action: Go to your issues
+  keys: [gi]
+- action: Go to your pull requests
+  keys: [gp]
+
+Notifications:
+- action: Mark as read
+  keys: [e, I, y]
+- action: Mute thread
+  keys: [shift m]
+
+Pull request list:
+- action: Reply (quoting selected text)
+  keys: [r]
+- action: Open issue
+  keys: [o, enter]
+- action: Submit comment
+  keys: [ctrl enter]
+- action: Preview comment
+  keys: [ctrl shift p]
+- action: Go fullscreen
+  keys: [ctrl shift l]
+
+Network Graph:
+- action: Scroll left
+  keys: [←, h]
+- action: Scroll right
+  keys: [→, l]
+- action: Scroll up
+  keys: [↑, k]
+- action: Scroll down
+  keys: [↓, j]
+- action: Toggle visibility of head labels
+  keys: [t]
+- action: Scroll all the way left
+  keys: [shift ←, shift h]
+- action: Scroll all the way right
+  keys: [shift →, shift l]
+- action: Scroll all the way up
+  keys: [shift ↑, shift k]
+- action: Scroll all the way down
+  keys: [shift ↓, shift j]

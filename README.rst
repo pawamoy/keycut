@@ -18,8 +18,7 @@ Memo
 
    app and custom cannot contains hyphens (-),  
    version can contain any character.
-4. Syntax of a YAML file: just take a look at vim.yml
-
+4. Syntax of a YAML file: take a look at YAML files in data folder
 5. Extra commands:
   * `inherits`: `app[-custom][-version]`  
      This file will inherit from the specified file.
