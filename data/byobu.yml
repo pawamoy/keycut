@@ -1,0 +1,97 @@
+Session Window and Split:
+- action: Create a new window
+  keys: [F2]
+- action: Create a horizontal split
+  keys: [Shift-F2]
+- action: Create a vertical split
+  keys: [Ctrl-F2]
+- action: Create a new session
+  keys: [Ctrl-Shift-F2]
+
+Focus:
+- action: Move focus among windows
+  keys: [F3, F4]
+- action: Move focus among windows
+  keys: [Alt-Left, Alt-Right]
+- action: Move focus among sessions
+  keys: [Alt-Up, Alt-Down]
+- action: Move focus among splits
+  keys: [Shift-Left, Shift-Right, Shift-Up, Shift-Down]
+- action: Move focus among splits
+  keys: [Shift-F3, Shift-F4]
+- action: Zoom into a split, zoom out of a split
+  keys: [Shift-F11]
+
+Reload and Toggle:
+- action: Reload profile, refresh status
+  keys: [F5]
+- action: Toggle UTF-8 support, refresh status
+  keys: [Alt-F5]
+- action: Toggle through status lines
+  keys: [Shift-F5]
+- action: Toggle on/off Byobu's keybindings
+  keys: [Shift-F12]
+- action: Toggle on/off Byobu's mouse support
+  keys: [Alt-F12]
+- action: Reconnect ssh/gpg/dbus sockets
+  keys: [Ctrl-F5]
+- action: Change status bar's color randomly
+  keys: [Ctrl-Shift-F5]
+
+Detach and Kill:
+- action: Detach session and do not logout
+  keys: [Shift-F6]
+- action: Detach all clients but yourself
+  keys: [Alt-F6]
+- action: Kill split in focus
+  keys: [Ctrl-F6]
+
+History scroll:
+- action: Enter scrollback history
+  keys: [F7]
+- action: Enter and move through scrollback
+  keys: [Alt-PageUp, Alt-PageDown]
+- action: Save history to $BYOBU_RUN_DIR/printscreen
+  keys: [Shift-F7]
+
+Rename:
+- action: Rename the current window
+  keys: [F8]
+- action: Rename the current session
+  keys: [Ctrl-F8]
+
+Arrangements:
+- action: Move a split
+  keys: [Ctrl-F3, Ctrl-F4]
+- action: Move a window
+  keys: [Ctrl-Shift-F3, Ctrl-Shift-F4]
+- action: Resize a split
+  keys: [Shift-Alt-Left, Shift-Alt-Right, Shift-Alt-Up, Shift-Alt-Down]
+- action: Expand split to a full window
+  keys: [Alt-F11]
+- action: Join window into a vertical split
+  keys: [Ctrl-F11]
+- action: Mondrian squares
+  keys: [Ctrl-Shift-F12]
+- action: Toggle through split arrangements
+  keys: [Shift-F8]
+- action: Restore a split-pane layout
+  keys: [Alt-Shift-F8]
+- action: Save the current split-pane layout
+  keys: [Ctrl-Shift-F8]
+
+Help and configuration:
+- action: Display this help
+  keys: [Shift-F1]
+- action: Launch byobu-config window
+  keys: [F9]
+
+Run commands:
+- action: Enter command and run in all windows
+  keys: [Ctrl-F9]
+- action: Enter command and run in all splits
+  keys: [Shift-F9]
+
+Misc:
+- action: Escape sequence
+  keys: [F12]

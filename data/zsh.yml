@@ -1,0 +1,20 @@
+- action: delete the line
+  keys: [C-u]
+- action: set mark
+  keys: [C-SPACE]
+- action: copy from point to mark
+  keys: [M-w]
+- action: kill-from point to mark
+  keys: [C-w]
+- action: copy the previous word
+  keys: [C-M-/]
+- action: look in history for match of word on line
+  keys: [M-p]
+- action: push line to be used again
+  keys: [C-q]
+- action: extract last word from history
+  keys: [M-.]
+- action: paste text from kill ring
+  keys: [C-y]
+- action: display command bound to a key
+  keys: [M-x where-is]

@@ -1,0 +1,123 @@
+Moving the cursor:
+- action: Go to the beginning of the line (Home)
+  keys: [Ctrl + a]
+- action: Go to the End of the line (End)
+  keys: [Ctrl + e]
+- action: Previous command (Up arrow)
+  keys: [Ctrl + p]
+- action: Next command (Down arrow)
+  keys: [Ctrl + n]
+- action: Back (left) one word
+  keys: [Alt + b]
+- action: Forward (right) one word
+  keys: [Alt + f]
+- action: Forward one character
+  keys: [Ctrl + f]
+- action: Backward one character
+  keys: [Ctrl + b]
+- action: Toggle between the start of line and current cursor position
+  keys: [Ctrl + xx]
+
+Editing:
+- action: Clear the Screen, similar to the clear command
+  keys: [Ctrl + L]
+- action: Delete the Word before the cursor.
+  keys: [Alt + Del
+- action: Delete the Word after the cursor.
+  keys: [Alt + d]
+- action: Delete character under the cursor
+  keys: [Ctrl + d]
+- action: Delete character before the cursor (Backspace)
+  keys: [Ctrl + h]
+- action: Cut the Word before the cursor to the clipboard.
+  keys: [Ctrl + w]
+- action: Cut the Line after the cursor to the clipboard.
+  keys: [Ctrl + k]
+- action: Cut/delete the Line before the cursor to the clipboard.
+  keys: [Ctrl + u]
+- action: Swap current word with previous
+  keys: [Alt + t]
+- action: Swap the last two characters before the cursor (typo).
+  keys: [Ctrl + t]
+- action: Swap the last two words before the cursor.
+  keys: [Esc  + t]
+- action: Paste the last thing to be cut (yank)
+  keys: [ctrl + y]
+- action: >
+    UPPER capitalize every character from the cursor
+    to the end of the current word.
+  keys: [Alt + u]
+- action: >
+    Lower the case of every character from the cursor
+    to the end of the current word.
+  keys: [Alt + l]
+- action: >
+    Capitalize the character under the cursor
+    and move to the end of the word.
+  keys: [Alt + c]
+- action: >
+    Cancel the changes and put back the line
+    as it was in the history (revert).
+  keys: [Alt + r]
+- action: Undo
+  keys: [ctrl + _]
+- action:      Tab completion for file/directory names
+  keys: [TAB]
+
+History:
+- action: >
+    Recall the last command including the specified character(s)
+    searches the command history as you type.
+    Equivalent to : vim ~/.bash_history.
+  keys: [Ctrl + r]
+- action: >
+    Previous command in history
+    (i.e. walk back through the command history)
+  keys: [Ctrl + p]
+- action: >
+    Next command in history
+    (i.e. walk forward through the command history)
+  keys: [Ctrl + n]
+- action: >
+    Go back to the next most recent command (beware to not execute it
+    from a terminal because this will also launch its XOFF).
+  keys: [Ctrl + s]
+- action: Execute the command found via Ctrl+r or Ctrl+s
+  keys: [Ctrl + o]
+- action: Escape from history searching mode
+  keys: [Ctrl + g]
+- action: Repeat last command
+  keys: [!!]
+- action: Run last command starting with abc
+  keys: [!abc]
+- action: Print last command starting with abc
+  keys: [!abc:p]
+- action: Last argument of previous command
+  keys: [!$]
+- action: Last argument of previous command
+  keys: [ALT + .]
+- action: All arguments of previous command
+  keys: [!*]
+- action: Run previous command, replacing abc with def
+  keys: [^abc­^­def]
+
+Process control:
+- action: Interrupt/Kill whatever you are running (SIGINT)
+  keys: [Ctrl + C]
+- action: Clear the screen
+  keys: [Ctrl + l]
+- action: Stop output to the screen (for long running verbose commands)
+           Then use PgUp/PgDn for navigation
+  keys: [Ctrl + s]
+- action: >
+    Allow output to the screen
+    (if previously stopped using command above)
+  keys: [Ctrl + q]
+- action: >
+    Send an EOF marker, unless disabled by an option,
+    this will close the current shell (EXIT)
+  keys: [Ctrl + D]
+- action: >
+    Send the signal SIGTSTP to the current task, which suspends it.
+    To return to it later enter fg 'process name' (foreground).
+  keys: [Ctrl + Z]

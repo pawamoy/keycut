@@ -1,0 +1,87 @@
+# Escape key:
+# All screen commands are prefixed by an escape key, by default C-a
+# (that's Control-a, sometimes written ^a). To send a literal C-a
+# to the programs in screen, use C-a a. This is useful when when working with
+# screen within screen. For example C-a a n will move screen to a new window
+# on the screen within screen.
+Getting out:
+- action: detach (use screen -r to reattach)
+  keys: [C-a d]
+- action: detach and logout (quick exit)
+  keys: [C-a D D]
+- action: exit screen (exit all of the programs in screen)
+  keys: ['C-a \']
+- action: force-exit screen(not recommended)
+  keys: ['C-a C-\']
+- action: lock session (Enter user password to unlock)
+  keys: [Ctrl+a x]
+
+Help:
+- action: See help (lists keybindings)
+  keys: ['C-a ?']
+
+Window Management:
+- action: create new window
+  keys: [C-a c]
+- action: change to last-visited active window
+  keys: [C-a C-a]
+- action: change to window by number (only for windows 0 to 9)
+  keys: [C-a <number>]
+- action: change to window by number or name
+  keys: ["C-a ' <number or title>"]
+- action: change to next window in list
+  keys: [C-a n, C-a <space>]
+- action: change to previous window in list
+  keys: [C-a p, C-a <backspace>]
+- action: select window from list
+  keys: ['C-a "']
+- action: show window bar (if you don't have window bar)
+  keys: [C-a w]
+- action: kill current window (not recommended)
+  keys: [C-a K]
+- action: kill all windows (not recommended)
+  keys: ['C-a \']
+- action: rename current window
+  keys: [C-a A]
+
+Split screen:
+- action: split display horizontally
+  keys: [C-a S]
+- action: split display vertically (for the vanilla vertical screen patch)
+  keys: ['C-a |', C-a V]
+- action: resize region
+  keys: [Ctrl+a :resize]
+- action: fit screen size to new terminal size
+  keys: [Ctrl+a :fit, Ctrl+a F]
+- action: remove region	Ctrl+a X is the same
+  keys: [Ctrl+a :remove]
+- action: jump to next display region
+  keys: [C-a tab]
+- action: remove current region
+  keys: [C-a X]
+- action: remove all regions but the current one
+  keys: [C-a Q]
+
+Misc:
+- action: redraw window
+  keys: [C-a C-l]
+- action: enter copy mode (also used for viewing scrollback buffer)
+  keys: ['C-a [', C-a <esc>]
+- action: paste
+  keys: ['C-a ]']
+- action: write paste buffer to file (useful for copying between screens)
+  keys: [Ctrl+a >]
+- action: read paste buffer from file (useful for pasting between screens)
+  keys: [Ctrl+a <]
+- action: monitor window for activity
+  keys: [C-a M]
+- action: monitor window for silence
+  keys: [C-a _]
+- action: enter digraph (for producing non-ASCII characters)
+  keys: [C-a C-v]
+- action: lock (password protect) display
+  keys: [C-a x]
+- action: enter screen command (up shows last command entered)
+  keys: ['C-a :']
+- action: enable logging in the screen session
+  keys: [C-a H]

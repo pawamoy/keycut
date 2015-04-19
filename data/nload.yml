@@ -1,0 +1,26 @@
+- action: >
+    Switch  the display to the next network device, or,
+    when started with the -m flag, to the next page of devices.
+  keys: ['ArrowRight', 'ArrowDown', 'PageDown', 'Enter', 'Tab']
+- action: >
+    Switch the display to the previous network device, or,
+    when started with the -m flag, to the  previous page of devices.
+  keys: ['ArrowLeft', 'ArrowUp', 'PageUp']
+- action: Show the option window (see section OPTION WINDOW below).
+  keys: ['F2']
+- action: Save current settings to the user's config file.
+  keys: ['F5']
+- action: Reload settings from the config files.
+  keys: ['F6']
+- action: Quit nload.
+  keys: ['q', 'Ctrl+C']
+- action: Show/hide the option window.
+  keys: ['F2']
+- action: Navigate within the edit fields.
+  keys: ['ArrowLeft', 'ArrowRight', 'Home', 'End']
+- action: Navigate between the settings.
+  keys: ['ArrowUp', 'ArrowDown', 'Enter']
+- action: Toggle between the different values possible for the current field.
+  keys: ['PageUp', 'PageDown', 'Tab']
+- action: Switch to the next / previous page of settings.
+  keys: ['+', '-']

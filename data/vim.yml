@@ -28,6 +28,7 @@ Cursor movement:
   keys: [$]
 - action: Go To command (prefix with number)
   keys: [G]
+
 Inserting/Appending text:
 - action: start insert mode at cursor
   keys: [i]
@@ -45,6 +46,7 @@ Inserting/Appending text:
   keys: [ea]
 - action: exit insert mode
   keys: [Esc]
+
 Editing:
 - action: replace a single character (does not use insert mode)
   keys: [r]
@@ -66,6 +68,7 @@ Editing:
   keys: [u]
 - action: repeat last command
   keys: [.]
+
 Marking text (visual mode):
 - action: start visual mode, mark lines, then do command (such as y-yank)
   keys: [v]
@@ -89,6 +92,7 @@ Marking text (visual mode):
   keys: [iB]
 - action: exit visual mode
   keys: [Esc]
+
 Visual commands:
 - action: shift right
   keys: [>]
@@ -100,6 +104,7 @@ Visual commands:
   keys: [d]
 - action: switch case
   keys: ['~']
+
 Cut and Paste:
 - action: yank (copy) a line
   keys: [yy]
@@ -119,6 +124,7 @@ Cut and Paste:
   keys: [dw]
 - action: delete (cut) current character
   keys: [x]
+
 Exiting:
 - action: "write (save) the file, but don't exit"
   keys: [:w]
@@ -128,6 +134,7 @@ Exiting:
   keys: [:q]
 - action: quit and throw away changes
   keys: [:q!]
+
 Search/Replace:
 - action: search for pattern
   keys: [/pattern]
@@ -141,6 +148,7 @@ Search/Replace:
   keys: [:%s/old/new/g]
 - action: replace all old with new throughout file with confirmations
   keys: [:%s/old/new/gc]
+
 Working with multiple files:
 - action: Edit a file in a new buffer
   keys: [:e filename]
