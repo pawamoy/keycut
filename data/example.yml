@@ -12,3 +12,6 @@
   keys: [p]
 - action: Copy the current line
   keys: [yy]
+
+# case-sensitive ?
+# notes ?
