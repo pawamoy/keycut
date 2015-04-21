@@ -1,129 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Little program to record keyboard shortcuts because there are so many.
-"""
-
 import os
 import sys
 import argparse
 import json
 import readline
 import sqlite3
-
-from sqlalchemy import Column, ForeignKey, Integer, String, Boolean
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, sessionmaker
-from sqlalchemy import create_engine
-
-Base = declarative_base()
-
-
-class Shortcut(Base):
-    __tablename__ = 'shortcut'
-    id = Column(Integer, primary_key=True)
-    sequences = relationship('Sequence')
-    actions = relationship('Action')
-    apps = relationship('App')
-    tags = relationship('Tag')
-
-
-class Sequence(Base):
-    __tablename__ = 'sequence'
-    id = Column(Integer, primary_key=True)
-    shortcut_id = Column(Integer, ForeignKey('shortcut.id'))
-    active = Column(Boolean(), default=True)
-    hotkey = Column(Boolean(), default=False)
-    binding = Column(Boolean(), default=False)
-    sacred = Column(Boolean(), default=False)
-    default = Column(Boolean(), default=False)
-    keys = Column(String(40), nullable=False)
-
-
-class App(Base):
-    __tablename__ = 'app'
-    id = Column(Integer, primary_key=True)
-    shortcut_id = Column(Integer, ForeignKey('shortcut.id'))
-    name = Column(String(255), nullable=False)
-    version = Column(String(20))
-
-
-class Tag(Base):
-    __tablename__ = 'tag'
-    id = Column(Integer, primary_key=True)
-    shortcut_id = Column(Integer, ForeignKey('shortcut.id'))
-    name = Column(String(30))
-
-
-class Action(Base):
-    __tablename__ = 'action'
-    id = Column(Integer, primary_key=True)
-    shortcut_id = Column(Integer, ForeignKey('shortcut.id'))
-    name = Column(String(255))
-    lang = Column(String(5))
-
-
-# Create an engine that stores data in the local directory's
-# sqlalchemy_example.db file.
-engine = create_engine('sqlite:///keycut.db')
-
-session = sessionmaker()
-session.configure(bind=engine)
-# Create all tables in the engine. This is equivalent to "Create Table"
-# statements in raw SQL.
-Base.metadata.create_all(engine)
-
-s = session()
-# conn = sqlite3.connect('keycut.db')
-# c = conn.cursor()
-
-
-# s.close()
-
-# @staticmethod
-# def serializer(obj):
-#     if isinstance(obj, Shortcut):
-#         return {"__class__": "Shortcut",
-#                 "keys": obj.keys,
-#                 "actions": obj.actions,
-#                 "program": obj.program,
-#                 "features": obj.features}
-#     raise TypeError(repr(obj) + " is not serializable.")
-#
-# @staticmethod
-# def deserializer(obj_dict):
-#     if "__class__" in obj_dict:
-#         if obj_dict["__class__"] == "Shortcut":
-#             obj = Shortcut(
-#                 obj_dict["keys"],
-#                 obj_dict["actions"],
-#                 obj_dict["program"],
-#                 obj_dict["features"])
-#             return obj
-#     return obj_dict
-
-
-# def save_shortcuts(filename=file_path):
-#     """
-#     Serialize all the shortcuts and write them to filename param.
-#     """
-#     filename = os.path.abspath(filename)
-#     if os.path.exists(filename):
-#         with open(filename, 'w') as f:
-#             json.dump(shortcut_list, f, indent=4, default=Shortcut.serializer)
-
-
-# def load_shortcuts(filename=file_path):
-#     """
-#     Read all shortcuts fom filename param and return their deserialization.
-#     """
-#     filename = os.path.abspath(filename)
-#     if os.path.exists(filename):
-#         with open(filename, 'r') as f:
-#             return json.load(f, object_hook=Shortcut.deserializer)
-#     else:
-#         with open(filename, 'w') as f:
-#             pass
 
 
 # class CustomFormatter(argparse.HelpFormatter):
@@ -192,15 +75,6 @@ s = session()
 #     def startup_hook():
 #         readline.insert_text(text)
 #     return startup_hook
-
-# algo: fournir keys, features, actions ou program en cli
-# avec une liste de valeur genre p=prog,f=feat,...
-# si une/plusieurs valeurs genre -p prog -f feat ET une chaine (avant)
-# chercher chaine partout sauf valeurs fournies
-# si une seule valeur genre p=prog, chercher que prog dans programs
-# si une seule valeur genre string, chercher string partout
-# si aucune valeur, proposer les champs (user input)
-
 
 # def input_data(shortcut=None):
 #     keys, actions, programs, features = None, None, None, None
