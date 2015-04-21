@@ -1,4 +1,8 @@
 # Note: Prefix a command with a number to repeat it. For example, 4j moves down 4 lines.
+General:
+- action: leader key
+  keys: ['\']
+
 Cursor movement:
 - action: move left
   keys: [h]

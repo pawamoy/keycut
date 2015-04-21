@@ -1,0 +1,18 @@
+inherits:
+- vim
+- nerdtree
+- easymotion
+- tagbar
+- tabularize
+- neocomplcache
+- fugitive
+- piv
+- syntastic
+- numbers.vim
+- nerdcommenter
+- surround
+- ctrlp
+
+General:
+- action: leader key
+  keys: [',']
