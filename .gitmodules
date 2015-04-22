@@ -1,0 +1,3 @@
+[submodule "keycut-data"]
+	path = keycut-data
+	url = git@github.com:Pawamoy/keycut-data.git
