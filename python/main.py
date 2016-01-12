@@ -4,10 +4,9 @@
 import os
 import sys
 import argparse
-import json
 import readline
-import sqlite3
 
+from load.yaml import load_file
 
 # class CustomFormatter(argparse.HelpFormatter):
 #     def _format_action_invocation(self, action):
@@ -130,3 +129,8 @@ import sqlite3
 # if __name__ == '__main__':
 #     status = main()
 #     sys.exit(status)
+
+
+if __name__ == '__main__':
+    document = load_file('/media/pawantu/Data/git/keycut-data/default/bash.yml')
+    print(document)
