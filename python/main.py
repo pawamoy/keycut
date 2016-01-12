@@ -6,6 +6,7 @@ import sys
 import argparse
 import readline
 
+import render
 from load.yaml import load_file
 
 # class CustomFormatter(argparse.HelpFormatter):
@@ -132,5 +133,13 @@ from load.yaml import load_file
 
 
 if __name__ == '__main__':
-    document = load_file('/media/pawantu/Data/git/keycut-data/default/bash.yml')
-    print(document)
+    files = [
+        '/media/pawantu/Data/git/keycut-data/default/bash.yml',
+        '/media/pawantu/Data/git/keycut-data/default/htop.yml',
+    ]
+
+    for f in files:
+        document = load_file(f)
+        text = render.as_yaml(document)
+        print(text)
+        print('----------------------------')
