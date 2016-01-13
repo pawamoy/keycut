@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os
 import sys
-import argparse
-import readline
-
-import render
 import load
+import os
+import render
+import time
 from search import search
+from watch import Watcher, check
 
 # class CustomFormatter(argparse.HelpFormatter):
 #     def _format_action_invocation(self, action):
@@ -134,19 +133,41 @@ from search import search
 
 
 if __name__ == '__main__':
-    directory = '/media/pawantu/Data/git/keycut-data/default/'
 
     if len(sys.argv) == 1:
-        print('usage: main.py prog pattern')
+        print('usage: main.py PROG [PATTERN] | --listen[=FILE]')
         sys.exit(1)
 
-    prog = sys.argv[1]
-    document = load.from_yaml(os.path.join(directory, prog) + '.yml')
+    if sys.argv[1].startswith('--listen'):
+        args = sys.argv[1].split('=')
+        if len(args) > 1:
+            listen = args[1]
+        else:
+            if len(sys.argv) > 2:
+                listen = sys.argv[2]
+            else:
+                listen = os.path.join(os.environ.get('HOME'), '.keycut')
 
-    if len(sys.argv) == 3:
-        pattern = sys.argv[2]
-        document = search(document, pattern)
+        watcher = Watcher(listen)
+        watcher.daemon = True
+        watcher.start()
+        print('Watching file %s' % listen)
 
-    print(document)
-    # text = render.as_text(document)
-    # print(text)
+        try:
+            while True:
+                time.sleep(1)
+        except KeyboardInterrupt:
+            sys.exit(0)
+
+    else:
+        app = sys.argv[1]
+        file, exist = check(app)
+        if exist:
+            document = load.from_yaml(file)
+
+            if len(sys.argv) == 3:
+                pattern = sys.argv[2]
+                document = search(document, pattern)
+
+            text = render.as_text(document)
+            print(text)

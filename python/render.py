@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import json
 import yaml
 
 
@@ -9,16 +8,12 @@ def as_text(document):
         category = item.get('category', None)
         if category is not None:
             str_list.append('Category: %s\nAction: %s\nKeys: %s\n' % (
-                category, item['keys'], item['action'].rstrip()))
+                category, item['action'].rstrip(), item['keys']))
         else:
             str_list.append('Action: %s\nKeys: %s\n' % (
-                item['keys'], item['action'].rstrip()
+                item['action'].rstrip(), item['keys']
             ))
     return '\n'.join(str_list)
-
-
-def as_json(document):
-    return json.dumps(document)
 
 
 def as_yaml(document):

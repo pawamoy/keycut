@@ -2,3 +2,4 @@
 keycut.db
 *.pyc
 __pycache__
+keycut-data/
