@@ -7,7 +7,8 @@ import argparse
 import readline
 
 import render
-from load.yaml import load_file
+import load
+from search import search
 
 # class CustomFormatter(argparse.HelpFormatter):
 #     def _format_action_invocation(self, action):
@@ -133,13 +134,19 @@ from load.yaml import load_file
 
 
 if __name__ == '__main__':
-    files = [
-        '/media/pawantu/Data/git/keycut-data/default/bash.yml',
-        '/media/pawantu/Data/git/keycut-data/default/htop.yml',
-    ]
+    directory = '/media/pawantu/Data/git/keycut-data/default/'
 
-    for f in files:
-        document = load_file(f)
-        text = render.as_yaml(document)
-        print(text)
-        print('----------------------------')
+    if len(sys.argv) == 1:
+        print('usage: main.py prog pattern')
+        sys.exit(1)
+
+    prog = sys.argv[1]
+    document = load.from_yaml(os.path.join(directory, prog) + '.yml')
+
+    if len(sys.argv) == 3:
+        pattern = sys.argv[2]
+        document = search(document, pattern)
+
+    print(document)
+    # text = render.as_text(document)
+    # print(text)

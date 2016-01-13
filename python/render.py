@@ -5,15 +5,13 @@ import yaml
 
 def as_text(document):
     str_list = []
-    if isinstance(document, dict):
-        for key, value in document.items():
-            for item in value:
-                str_list.append('Keys: %s\nAction: %s\nCategory: %s\n' % (
-                    item['keys'], item['action'].rstrip(), key
-                ))
-    elif isinstance(document, list):
-        for item in document:
-            str_list.append('Keys: %s\nAction: %s\n' % (
+    for item in document:
+        category = item.get('category', None)
+        if category is not None:
+            str_list.append('Category: %s\nAction: %s\nKeys: %s\n' % (
+                category, item['keys'], item['action'].rstrip()))
+        else:
+            str_list.append('Action: %s\nKeys: %s\n' % (
                 item['keys'], item['action'].rstrip()
             ))
     return '\n'.join(str_list)
