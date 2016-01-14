@@ -3,21 +3,36 @@ import re
 
 
 def _search(document, pattern, key=None, word=False):
-    exp = r'.*\b%s\b.*' if word else r'.*%s.*'
+    exp = r'(\b%s\b)' if word else r'(%s)'
     prog = re.compile(exp % pattern, re.IGNORECASE)
     if key is not None:
-        return [item for item in document if prog.match(item[key])]
+        return [item for item in document if prog.search(item[key])]
     else:
         l = []
         for item in document:
-            if prog.match(item['action']):
+            mo = prog.search(item['action'])
+            if mo:
+                item['action_pos'] = []
+                for index, group in enumerate(mo.groups()):
+                    item['action_pos'].append(mo.span(index))
                 l.append(item)
-            elif prog.match(item['category']):
+                continue
+            mo = prog.search(item['category'])
+            if mo:
+                item['category_pos'] = []
+                for group in mo.groups():
+                    item['category_pos'].append(mo.span(group))
                 l.append(item)
-            else:
-                for key in item['keys']:
-                    if prog.match(key):
-                        l.append(item)
+                continue
+            item['keys_pos'] = {}
+            for key in item['keys']:
+                mo = prog.search(key)
+                if mo:
+                    item['keys_pos'][key] = []
+                    for group in mo.groups():
+                        item['keys_pos'][key].append(mo.span(group))
+                    l.append(item)
+                    break
         return l
 
 

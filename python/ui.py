@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 import render
 from search import (
     search, in_action, in_category, in_keys,
@@ -22,4 +23,5 @@ def reload(document):
     global UI_DOCUMENT
     UI_DOCUMENT = document
     text = render.as_text(document)
+    os.system('clear')
     print(text)

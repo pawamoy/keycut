@@ -7,7 +7,8 @@ import os
 import render
 import time
 from search import search
-from watch import Watcher, check
+from watch import Watcher
+from utils import print_err
 
 # class CustomFormatter(argparse.HelpFormatter):
 #     def _format_action_invocation(self, action):
@@ -135,23 +136,32 @@ from watch import Watcher, check
 if __name__ == '__main__':
 
     if len(sys.argv) == 1:
-        print('usage: main.py PROG [PATTERN] | --listen[=FILE]')
+        print('usage: main.py PROG [PATTERN] | --watch[=FILE]')
         sys.exit(1)
 
-    if sys.argv[1].startswith('--listen'):
+    if sys.argv[1].startswith('--watch'):
         args = sys.argv[1].split('=')
         if len(args) > 1:
-            listen = args[1]
+            watch = args[1]
         else:
             if len(sys.argv) > 2:
-                listen = sys.argv[2]
+                watch = sys.argv[2]
             else:
-                listen = os.path.join(os.environ.get('HOME'), '.keycut')
+                watch = os.path.join(os.environ.get('HOME'), '.keycut')
 
-        watcher = Watcher(listen)
+        watch = os.path.abspath(watch)
+        watcher = Watcher(watch)
         watcher.daemon = True
         watcher.start()
-        print('Watching file %s' % listen)
+
+        print('Watching file %s' % watch)
+        print('You can use the following functions in your shell')
+        print()
+        print('k() { echo "$@" > %s; eval '"$@"'; }' % watch)
+        print('kgrep() { echo "$@" > %s; }' % watch)
+        print()
+        print('and use it like: k vim somefile; kgrep htop pid')
+        print('------------------------------------------------')
 
         try:
             while True:
@@ -161,13 +171,15 @@ if __name__ == '__main__':
 
     else:
         app = sys.argv[1]
-        file, exist = check(app)
-        if exist:
-            document = load.from_yaml(file)
+        document = load.from_yaml(app)
 
+        if document:
             if len(sys.argv) == 3:
                 pattern = sys.argv[2]
                 document = search(document, pattern)
-
-            text = render.as_text(document)
+                text = render.as_colored_text(document)
+            else:
+                text = render.as_text(document)
             print(text)
+        else:
+            print_err('Document not found: %s' % app)
