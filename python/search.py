@@ -16,23 +16,23 @@ def _search(document, pattern, key=None, word=False):
                 for index, group in enumerate(mo.groups()):
                     item['action_pos'].append(mo.span(index))
                 l.append(item)
-                continue
             mo = prog.search(item['category'])
             if mo:
                 item['category_pos'] = []
-                for group in mo.groups():
-                    item['category_pos'].append(mo.span(group))
+                for index, group in enumerate(mo.groups()):
+                    item['category_pos'].append(mo.span(index))
                 l.append(item)
-                continue
             item['keys_pos'] = {}
+            added = False
             for key in item['keys']:
                 mo = prog.search(key)
                 if mo:
                     item['keys_pos'][key] = []
-                    for group in mo.groups():
-                        item['keys_pos'][key].append(mo.span(group))
-                    l.append(item)
-                    break
+                    for index, group in enumerate(mo.groups()):
+                        item['keys_pos'][key].append(mo.span(index))
+                    if not added:
+                        l.append(item)
+                        added = True
         return l
 
 

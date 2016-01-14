@@ -179,7 +179,7 @@ if __name__ == '__main__':
                 document = search(document, pattern)
                 text = render.as_colored_text(document)
             else:
-                text = render.as_text(document)
+                text = render.as_colored_text(document)
             print(text)
         else:
             print_err('Document not found: %s' % app)
