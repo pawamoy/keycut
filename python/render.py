@@ -72,9 +72,8 @@ def as_colored_text(document):
         keys = item['keys']
         for key in keys:
             key_pos = item.get('keys_pos', {}).get(key)
-            key = _color(key, KEY_COLOR)
             if key_pos:
-                s_key.extend(_color_match(key, key_pos, KEY_COLOR))
+                s_key.append(''.join(_color_match(key, key_pos, KEY_COLOR)))
             else:
                 s_key.append('%s' % _color(key, KEY_COLOR))
         s.append(', '.join(s_key))

@@ -4,8 +4,8 @@
 import sys
 import load
 import os
-import render
 import time
+import ui
 from search import search
 from watch import Watcher
 from utils import print_err
@@ -177,9 +177,6 @@ if __name__ == '__main__':
             if len(sys.argv) == 3:
                 pattern = sys.argv[2]
                 document = search(document, pattern)
-                text = render.as_colored_text(document)
-            else:
-                text = render.as_colored_text(document)
-            print(text)
+            ui.reload(document, clear=False)
         else:
             print_err('Document not found: %s' % app)

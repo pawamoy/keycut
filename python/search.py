@@ -10,22 +10,26 @@ def _search(document, pattern, key=None, word=False):
     else:
         l = []
         for item in document:
+            added = False
             mo = prog.search(item['action'])
             if mo:
                 item['action_pos'] = []
                 for index, group in enumerate(mo.groups()):
                     item['action_pos'].append(mo.span(index))
-                l.append(item)
+                if not added:
+                    l.append(item)
+                    added = True
             mo = prog.search(item['category'])
             if mo:
                 item['category_pos'] = []
                 for index, group in enumerate(mo.groups()):
                     item['category_pos'].append(mo.span(index))
-                l.append(item)
+                if not added:
+                    l.append(item)
+                    added = True
             item['keys_pos'] = {}
-            added = False
             for key in item['keys']:
-                mo = prog.search(key)
+                mo = prog.search(str(key))
                 if mo:
                     item['keys_pos'][key] = []
                     for index, group in enumerate(mo.groups()):
@@ -33,7 +37,7 @@ def _search(document, pattern, key=None, word=False):
                     if not added:
                         l.append(item)
                         added = True
-        return l
+        return l if l else document
 
 
 def search(document, pattern):

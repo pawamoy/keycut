@@ -19,9 +19,10 @@ UI_COMMANDS = {
 UI_DOCUMENT = None
 
 
-def reload(document):
+def reload(document, clear=True):
     global UI_DOCUMENT
     UI_DOCUMENT = document
-    text = render.as_text(document)
-    os.system('clear')
+    text = render.as_colored_text(document)
+    if clear:
+        os.system('clear')
     print(text)
