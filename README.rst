@@ -66,6 +66,15 @@ that you can copy/paste in other shells:
 
 *$HOME/.keycut* will of course be replaced by the file you provided to --watch option.
 
+You can then use these functions like this:
+
+.. code:: bash
+
+    k vim README.rst
+    kgrep vim replace
+    k htop
+
+
 Todo
 ----
 
