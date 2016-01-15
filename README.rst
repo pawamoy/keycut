@@ -26,20 +26,45 @@ or clone the repo and install its dependencies.
 Usage
 -----
 
-`python main.py bash`: Show all bash shortcuts  
-`python main.py bash proc`: Show all bash shortcuts matching `proc` (in Category, Action, or Keys)  
-`python main.py --watch`: Will watch $HOME/.keycut file. Output a command in this file and KeyCut
-will show the corresponding shortcuts (if available).  
-`python main.py --watch=thisFile`: Same as before but change file path to absolute path of thisFile.
+.. code:: bash
+
+    python main.py bash
+
+Show all bash shortcuts.
+
+.. code:: bash
+
+    python main.py bash proc
+
+Show all bash shortcuts matching *proc* (in Category, Action, or Keys)
+
+.. code:: bash
+
+    python main.py --watch`
+
+Will watch *$HOME/.keycut* file. Output a command in this file and KeyCut
+will show the corresponding shortcuts (if available).
+
+.. code:: bash
+
+    python main.py --watch=thisFile
+
+Same as before but change file path to absolute path of *thisFile*.
 
 When you call it with --watch option, it will print on stdout two shell functions
 that you can copy/paste in other shells:
 
-- `k() { echo "$@" > $HOME/.keycut; eval '"$@"'; }`: Ask KeyCut to show corresponding shortcuts,
-  then execute the command.
-- `kgrep() { echo "$@" > $HOME/.keycut; }`: Just ask KeyCut to show corresponding shortcuts.
+.. code:: bash
 
-`$HOME/.keycut` will of course be replaced by the file you provided to --watch option.
+    k() { echo "$@" > $HOME/.keycut; eval '"$@"'; }
+    # Ask KeyCut to show corresponding shortcuts, then execute the command.
+
+.. code:: bash
+
+    kgrep() { echo "$@" > $HOME/.keycut; }
+    # Just ask KeyCut to show corresponding shortcuts.
+
+*$HOME/.keycut* will of course be replaced by the file you provided to --watch option.
 
 Todo
 ----
