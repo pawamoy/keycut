@@ -8,15 +8,15 @@ env:
   matrix:
     - TOXENV=check
 
-    - TOXENV=2.7-cover,coveralls,codecov
+    - TOXENV=2.7-cover,coveralls
     - TOXENV=2.7-nocov
-    - TOXENV=3.3-cover,coveralls,codecov
+    - TOXENV=3.3-cover,coveralls
     - TOXENV=3.3-nocov
-    - TOXENV=3.4-cover,coveralls,codecov
+    - TOXENV=3.4-cover,coveralls
     - TOXENV=3.4-nocov
-    - TOXENV=3.5-cover,coveralls,codecov
+    - TOXENV=3.5-cover,coveralls
     - TOXENV=3.5-nocov
-    - TOXENV=pypy-cover,coveralls,codecov
+    - TOXENV=pypy-cover,coveralls
     - TOXENV=pypy-nocov
 before_install:
   - python --version
