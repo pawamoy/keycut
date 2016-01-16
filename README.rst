@@ -159,3 +159,12 @@ Todo
 
 .. _keycut-data : https://github.com/Pawamoy/keycut-data
 .. _keycut-data README : https://github.com/Pawamoy/keycut-data/blob/master/README.md
+
+Acknowledgments
+===============
+
+Thanks to Ionel Cristian Maries (`ionelmc`_) for the project setup
+(see his `cookiecutter-pylibrary`_)!
+
+.. _ionelmc : https://github.com/ionelmc/
+.. _cookiecutter-pylibrary : https://github.com/ionelmc/cookiecutter-pylibrary
