@@ -2,7 +2,17 @@
 import os
 import yaml
 
+# FIXME: set this dynamically
 DIRECTORY = '/media/pawantu/Data/git/keycut/keycut-data/default/'
+
+
+def grep(cmdline):
+    cmdline = cmdline.lower()
+    for file in os.listdir(DIRECTORY):
+        app = os.path.splitext(file.lower())[0]
+        if app in cmdline:
+            return os.path.join(DIRECTORY, file)
+    return None
 
 
 def isfile(file):
@@ -14,10 +24,12 @@ def check(name, path=DIRECTORY):
     return file, isfile(file)
 
 
-def from_yaml(app):
+def from_yaml(app, command_line=None):
     file, exist = check(app)
-    if not exist:
-        return None
+    if not exist and command_line is not None:
+        file = grep(command_line)
+        if not file:
+            return None
     with open(file) as f:
         doc = yaml.load(f)
     if isinstance(doc, dict):
