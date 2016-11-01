@@ -1,3 +1,15 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import sys
+import load
+import os
+import time
+from ui import reload
+from search import search
+# from .watch import Watcher
+from utils import print_err
+
 # class CustomFormatter(argparse.HelpFormatter):
 #     def _format_action_invocation(self, action):
 #         if not action.option_strings:
@@ -14,8 +26,8 @@
 #                     parts.append('%s' % option_string)
 #                 parts[-1] += ' %s'%args_string
 #             return ', '.join(parts)
-#
-#
+
+
 # def process_command_line(argv):
 #     """
 #     Return a 2-tuple: (settings object, args list).
@@ -119,3 +131,51 @@
 # if __name__ == '__main__':
 #     status = main()
 #     sys.exit(status)
+
+if __name__ == '__main__':
+
+    if len(sys.argv) == 1:
+        print('usage: main.py PROG [PATTERN] | --watch[=FILE]')
+        sys.exit(1)
+
+    # if sys.argv[1].startswith('--watch'):
+    #     args = sys.argv[1].split('=')
+    #     if len(args) > 1:
+    #         watch = args[1]
+    #     else:
+    #         if len(sys.argv) > 2:
+    #             watch = sys.argv[2]
+    #         else:
+    #             watch = os.path.join(os.environ.get('HOME'), '.keycut')
+    #
+    #     watch = os.path.abspath(watch)
+    #     watcher = Watcher(watch)
+    #     watcher.daemon = True
+    #     watcher.start()
+    #
+    #     print('Watching file %s' % watch)
+    #     print('You can use the following functions in your shell')
+    #     print()
+    #     print('k() { echo "$@" > %s; eval '"$@"'; }' % watch)
+    #     print('kgrep() { echo "$@" > %s; }' % watch)
+    #     print()
+    #     print('and use it like: k vim somefile; kgrep htop pid')
+    #     print('------------------------------------------------')
+    #
+    #     try:
+    #         while True:
+    #             time.sleep(1)
+    #     except KeyboardInterrupt:
+    #         sys.exit(0)
+    #
+    # else:
+    app = sys.argv[1]
+    document = load.from_yaml(app)
+
+    if document:
+        if len(sys.argv) == 3:
+            pattern = sys.argv[2]
+            document = search(document, pattern)
+        reload(document, clear=False)
+    else:
+        print_err('Document not found: %s' % app)
