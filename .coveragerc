@@ -1,0 +1,18 @@
+[paths]
+source =
+   src/keycut
+   */site-packages/keycut
+
+[run]
+branch = true
+source =
+    keycut
+    tests
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit =
+    *migrations*
+    tests/*
