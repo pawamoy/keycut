@@ -1,5 +1,0 @@
-keycut
-======
-
-.. automodule:: keycut
-    :members:
