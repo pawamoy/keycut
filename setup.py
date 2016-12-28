@@ -28,7 +28,7 @@ def read(*names, **kwargs):
 
 setup(
     name='keycut',
-    version='0.1.0',
+    version='0.2.0',
     license='MPL 2.0',
     description='Helper tool to show and search shortcuts '
                 'for your favorite programs.',
