@@ -20,11 +20,8 @@ Why does this file exist, and why not put this in __main__?
 import argparse
 import sys
 import load
-import os
-import time
 import ui
 from search import search
-from watch import FileWatcher, WindowFocusWatcher, XdotoolWatcher
 from utils import print_err
 
 

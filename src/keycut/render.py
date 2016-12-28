@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
-import yaml
+
 import termcolor
+import yaml
+
 
 MATCH_COLOR = 'yellow'
 CATEGORY_COLOR = 'blue'

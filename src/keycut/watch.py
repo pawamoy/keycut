@@ -1,16 +1,19 @@
 # -*- coding: utf-8 -*-
-import time
+
 import json
-from subprocess import Popen, PIPE
+import time
+from subprocess import PIPE, Popen
+from threading import Thread
+
 import load
 import ui
-from threading import Thread
 from search import search
 
 
 class FirefoxWatcher(Thread):
     # FIXME: do this dynamically
-    f = open('/home/pawantu/.mozilla/firefox/7vjr1dfd.default/sessionstore-backups/recovery.js', 'r')
+    f = open('/home/pawantu/.mozilla/firefox/7vjr1dfd.default/'
+             'sessionstore-backups/recovery.js', 'r')
     jdata = json.loads(f.read())
     f.close()
     tab_number = jdata['windows'][0]['selected']
@@ -29,7 +32,9 @@ class XdotoolWatcher(Thread):
 
     @staticmethod
     def _run_command(command):
-        return Popen(command, shell=True, stdout=PIPE).stdout.read().decode().rstrip('\n')
+        return Popen(
+            command, shell=True, stdout=PIPE
+        ).stdout.read().decode().rstrip('\n')
 
     def run(self):
         name_command = 'xdotool getwindowfocus getwindowname'
@@ -57,10 +62,13 @@ class WindowFocusWatcher(Thread):
 
     @staticmethod
     def _run_command(command):
-        return Popen(command, shell=True, stdout=PIPE).stdout.read().decode().rstrip('\n')
+        return Popen(
+            command, shell=True, stdout=PIPE
+        ).stdout.read().decode().rstrip('\n')
 
     def run(self):
-        wid_command = 'xprop -root | grep _NET_ACTIVE_WINDOW\(WINDOW\) | grep -o "0x.*"'
+        wid_command = 'xprop -root | grep _NET_ACTIVE_WINDOW\(WINDOW\) | ' \
+                      'grep -o "0x.*"'
         pid_command = 'xprop -id %s | grep _NET_WM_PID | grep -o "[0-9]*"'
         name_command = 'cat /proc/%s/comm'
         cmdline_command = 'cat /proc/%s/cmdline'

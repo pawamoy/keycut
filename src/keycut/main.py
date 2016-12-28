@@ -2,13 +2,12 @@
 # -*- coding: utf-8 -*-
 
 import sys
+
 import load
-import os
-import time
-from ui import reload
 from search import search
-# from .watch import Watcher
+from ui import reload
 from utils import print_err
+
 
 # class CustomFormatter(argparse.HelpFormatter):
 #     def _format_action_invocation(self, action):
@@ -40,13 +39,14 @@ from utils import print_err
 #         formatter_class=CustomFormatter,
 #         add_help=False,
 #         usage="%(prog)s [option] [SHORTCUT]",
-#         description="%(prog)s is a command-line tool used to memorize keyboard "
-#                     "shortcuts. A shortcut has several data attached on it: "
-#                     "the keys combination, the program affected, the action it "
-#                     "does (several, for translations), and the features "
-#                     " concerned (edit, resize, focus, ...). "
-#                     "Positionnal SHORTCUT is composed of a combination of the "
-#                     "four filter options: -pfkc STRING [STRING ...]")
+#         description="%(prog)s is a command-line tool used to memorize "
+#                     "keyboard shortcuts. A shortcut has several data "
+#                     "attached on it: the keys combination, the program "
+#                     "affected, the action it does (several, for "
+#                     "translations), and the features concerned (edit, "
+#                     "resize, focus, ...). Positionnal SHORTCUT is composed "
+#                     "of a combination of the four filter options: "
+#                     "-pfkc STRING [STRING ...]")
 #     # define options here:
 #     parser.add_argument('shortcut', nargs='*')
 #     group = parser.add_mutually_exclusive_group(required=True)

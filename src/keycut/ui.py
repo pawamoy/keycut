@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
+
 import os
+
 import render
 from search import (
-    search, in_action, in_category, in_keys,
-    word_search, word_in_action, word_in_category, word_in_keys)
+    in_action, in_category, in_keys, search, word_in_action, word_in_category,
+    word_in_keys, word_search)
+
 
 UI_COMMANDS = {
     's': search,
