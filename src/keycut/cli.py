@@ -19,10 +19,10 @@ Why does this file exist, and why not put this in __main__?
 
 import argparse
 import sys
-import load
-import ui
-from search import search
-from utils import print_err
+
+from . import load, ui
+from .search import search
+from .utils import print_err
 
 
 parser = argparse.ArgumentParser(description='Command description.')
@@ -30,7 +30,7 @@ parser.add_argument('names', metavar='NAME', nargs=argparse.ZERO_OR_MORE,
                     help="A name of something.")
 
 
-def main(argv=None):
+def main(argv=sys.argv):
     """
     Args:
         argv (list): List of arguments
@@ -41,16 +41,16 @@ def main(argv=None):
     Does stuff.
     """
 
-    if argv is None:
-        print('usage: main.py PROG [PATTERN] | --watch[=FILE]')
+    if len(argv) <= 1:
+        print('usage: main.py PROG [PATTERN]')
         sys.exit(1)
 
-    app = argv[0]
+    app = argv[1]
     document = load.from_yaml(app)
 
     if document:
-        if len(argv) >= 2:
-            pattern = ' '.join(argv[1:])
+        if len(argv) >= 3:
+            pattern = ' '.join(argv[2:])
             document = search(document, pattern)
         ui.reload(document, clear=False)
     else:

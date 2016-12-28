@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
+
 import os
 import yaml
 
 # FIXME: set this dynamically
-DIRECTORY = '/media/pawantu/Data/git/keycut/keycut-data/default/'
+DIRECTORY = '/media/pawantu/Data/git/keycut-data/default/'
 
 
 def grep(cmdline):

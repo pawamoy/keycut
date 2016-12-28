@@ -66,7 +66,7 @@ setup(
         'keycut',
     ],
     install_requires=[
-        # eg: 'aspectlib==1.1.1', 'six>=1.7',
+        'PyYAML', 'termcolor'
     ],
     extras_require={
         # eg:

@@ -3,10 +3,10 @@
 
 import sys
 
-import load
-from search import search
-from ui import reload
-from utils import print_err
+from . import load
+from .search import search
+from .ui import reload
+from .utils import print_err
 
 
 # class CustomFormatter(argparse.HelpFormatter):

@@ -14,4 +14,8 @@ keycut
 Pawamoy
 KeyCut
 Timothee
+Timothée
 Mazzucotelli
+repo
+stdout
+Todo

@@ -8,4 +8,4 @@ from keycut.cli import main
 
 def test_main():
     """Main test method."""
-    main([])
+    main([None, 'terminator', 'move'])

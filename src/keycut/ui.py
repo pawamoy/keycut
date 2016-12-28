@@ -2,8 +2,8 @@
 
 import os
 
-import render
-from search import (
+from . import render
+from .search import (
     in_action, in_category, in_keys, search, word_in_action, word_in_category,
     word_in_keys, word_search)
 
