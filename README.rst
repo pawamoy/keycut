@@ -4,53 +4,43 @@ KeyCut
 
 .. start-badges
 
-.. list-table::
-    :stub-columns: 1
 
-    * - docs
-      - |docs|
-    * - tests
-      - | |travis|
-        | |coveralls|
-        | |landscape|
-    * - package
-      - |version| |downloads| |wheel| |supported-versions| |supported-implementations|
+|travis|
+|codecov|
+|landscape|
+|version|
+|wheel|
+|pyup|
+|gitter|
 
-.. |docs| image:: https://readthedocs.org/projects/keycut/badge/?style=flat
-    :target: https://readthedocs.org/projects/keycut
-    :alt: Documentation Status
 
 .. |travis| image:: https://travis-ci.org/Pawamoy/keycut.svg?branch=master
     :alt: Travis-CI Build Status
-    :target: https://travis-ci.org/Pawamoy/keycut
+    :target: https://travis-ci.org/Pawamoy/keycut/
 
-.. |coveralls| image:: https://coveralls.io/repos/Pawamoy/keycut/badge.svg?branch=master&service=github
+.. |codecov| image:: https://codecov.io/github/Pawamoy/keycut/coverage.svg?branch=master
     :alt: Coverage Status
-    :target: https://coveralls.io/r/Pawamoy/keycut
+    :target: https://codecov.io/github/Pawamoy/keycut/
 
 .. |landscape| image:: https://landscape.io/github/Pawamoy/keycut/master/landscape.svg?style=flat
-    :target: https://landscape.io/github/Pawamoy/keycut/master
+    :target: https://landscape.io/github/Pawamoy/keycut/
     :alt: Code Quality Status
+
+.. |pyup| image:: https://pyup.io/repos/github/pawamoy/keycut/shield.svg
+    :target: https://pyup.io/repos/github/pawamoy/keycut/
+    :alt: Updates
+
+.. |gitter| image:: https://badges.gitter.im/Pawamoy/keycut.svg
+    :alt: Join the chat at https://gitter.im/Pawamoy/keycut
+    :target: https://gitter.im/Pawamoy/keycut?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 .. |version| image:: https://img.shields.io/pypi/v/keycut.svg?style=flat
     :alt: PyPI Package latest release
-    :target: https://pypi.python.org/pypi/keycut
-
-.. |downloads| image:: https://img.shields.io/pypi/dm/keycut.svg?style=flat
-    :alt: PyPI Package monthly downloads
-    :target: https://pypi.python.org/pypi/keycut
+    :target: https://pypi.python.org/pypi/keycut/
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/keycut.svg?style=flat
     :alt: PyPI Wheel
-    :target: https://pypi.python.org/pypi/keycut
-
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/keycut.svg?style=flat
-    :alt: Supported versions
-    :target: https://pypi.python.org/pypi/keycut
-
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/keycut.svg?style=flat
-    :alt: Supported implementations
-    :target: https://pypi.python.org/pypi/keycut
+    :target: https://pypi.python.org/pypi/keycut/
 
 
 .. end-badges
@@ -73,11 +63,20 @@ The yellow parts are the one that matched a pattern using a regular expression.
 
 .. image:: http://i.imgur.com/ZaqTOUb.png
 
+=======
+License
+=======
+
+Software licensed under `MPL 2.0`_ license.
+
+.. _MPL 2.0 : https://www.mozilla.org/en-US/MPL/2.0/
+
 Installation
 ============
 
-There is no package on PyPi yet, you will have to download
-or clone the repo and install its dependencies manually.
+::
+
+    pip install keycut
 
 Usage
 =====
@@ -133,15 +132,12 @@ You can then use these functions like this:
 Documentation
 =============
 
-Documentation soon on https://keycut.readthedocs.org/.
-You can also read the `keycut-data README`_.
+https://github.com/Pawamoy/keycut/wiki
 
 Development
 ===========
 
-To run the all tests run::
-
-    tox
+To run all the tests: ``tox``
 
 License
 =======
@@ -159,12 +155,3 @@ Todo
 
 .. _keycut-data : https://github.com/Pawamoy/keycut-data
 .. _keycut-data README : https://github.com/Pawamoy/keycut-data/blob/master/README.md
-
-Acknowledgments
-===============
-
-Thanks to Ionel Cristian Maries (`ionelmc`_) for the project setup
-(see his `cookiecutter-pylibrary`_)!
-
-.. _ionelmc : https://github.com/ionelmc/
-.. _cookiecutter-pylibrary : https://github.com/ionelmc/cookiecutter-pylibrary

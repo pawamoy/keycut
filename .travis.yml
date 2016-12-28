@@ -2,32 +2,29 @@ language: python
 python: '3.5'
 sudo: false
 env:
-  global:
-    - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
-    - SEGFAULT_SIGNALS=all
-  matrix:
-    - TOXENV=check
+  - TOXENV=check
+  - TOXENV=py27,codecov
+  - TOXENV=py34,codecov
+  - TOXENV=py35,codecov
+  - TOXENV=pypy,codecov
 
-    - TOXENV=2.7-cover,coveralls
-    - TOXENV=2.7-nocov
-    - TOXENV=3.3-cover,coveralls
-    - TOXENV=3.3-nocov
-    - TOXENV=3.4-cover,coveralls
-    - TOXENV=3.4-nocov
-    - TOXENV=3.5-cover,coveralls
-    - TOXENV=3.5-nocov
-    - TOXENV=pypy-cover,coveralls
-    - TOXENV=pypy-nocov
+matrix:
+  fast_finish: true
 before_install:
   - python --version
   - uname -a
   - lsb_release -a
+  - pip install codecov
 install:
   - pip install tox
+  - pip install -r requirements/ci.txt
   - virtualenv --version
   - easy_install --version
   - pip --version
   - tox --version
+branches:
+  only:
+    - master
 script:
   - tox -v
 after_failure:
@@ -42,3 +39,5 @@ notifications:
   email:
     on_success: never
     on_failure: always
+after_success:
+  - codecov

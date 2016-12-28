@@ -1,6 +1,11 @@
+# -*- coding: utf-8 -*-
 
-from keycut.__main__ import main
+"""Main test script."""
+
+
+from keycut.cli import main
 
 
 def test_main():
-    assert main([]) == 0
+    """Main test method."""
+    main([])

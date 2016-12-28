@@ -1,12 +1,18 @@
 [paths]
-source = src
+source =
+   src/keycut
+   */site-packages/keycut
 
 [run]
-branch = True
-source = src
+branch = true
+source =
+    keycut
+    tests
 parallel = true
 
 [report]
 show_missing = true
 precision = 2
-omit = *migrations*
+omit =
+    *migrations*
+    tests/*

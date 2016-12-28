@@ -37,7 +37,8 @@ Development
 
 To set up `keycut` for local development:
 
-1. `Fork keycut on GitHub <https://github.com/Pawamoy/keycut/fork>`_.
+1. Fork `keycut <https://github.com/Pawamoy/keycut>`_
+   (look for the "Fork" button).
 2. Clone your fork locally::
 
     git clone git@github.com:your_name_here/keycut.git
@@ -48,7 +49,7 @@ To set up `keycut` for local development:
 
    Now you can make your changes locally.
 
-4. When you're done making changes, run all the checks, doc builder and spell checker with `tox <http://tox.readthedocs.org/en/latest/install.html>`_ one command::
+4. When you're done making changes, run all the tests with one command::
 
     tox
 

@@ -9,3 +9,9 @@ kwargs
 callstack
 Changelog
 Indices
+docstrings
+keycut
+Pawamoy
+KeyCut
+Timothee
+Mazzucotelli
