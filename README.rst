@@ -78,56 +78,34 @@ Installation
 
     pip install keycut
 
+You will also need to download the data by cloning the repository somewhere:
+
+::
+
+    git clone https://github.com/Pawamoy/keycut-data keycut_data
+
 Usage
 =====
 
-.. code:: bash
-
-    python main.py bash
-
-Show all bash shortcuts.
+The program needs to know where the data are. By default, it will search
+in the (relative) `keycut-data/default` directory.
 
 .. code:: bash
 
-    python main.py bash proc
+    export KEYCUT_DATA=/somewhere/keycut_data/default
 
-Show all bash shortcuts matching *proc* (in Category, Action, or Keys)
-
-.. code:: bash
-
-    python main.py --watch`
-
-Will watch *$HOME/.keycut* file. Output a command in this file and KeyCut
-will show the corresponding shortcuts (if available).
+Show all bash shortcuts:
 
 .. code:: bash
 
-    python main.py --watch=thisFile
+    keycut bash
 
-Same as before but change file path to absolute path of *thisFile*.
-
-When you call it with --watch option, it will print on stdout two shell functions
-that you can copy/paste in other shells:
+Show all bash shortcuts matching *proc* (in Category, Action, or Keys):
 
 .. code:: bash
 
-    k() { echo "$@" > $HOME/.keycut; eval '"$@"'; }
-    # Ask KeyCut to show corresponding shortcuts, then execute the command.
+    keycut bash proc
 
-.. code:: bash
-
-    kgrep() { echo "$@" > $HOME/.keycut; }
-    # Just ask KeyCut to show corresponding shortcuts.
-
-*$HOME/.keycut* will of course be replaced by the file you provided to --watch option.
-
-You can then use these functions like this:
-
-.. code:: bash
-
-    k vim README.rst
-    kgrep vim replace
-    k htop
 
 Documentation
 =============

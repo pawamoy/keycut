@@ -3,8 +3,7 @@
 import os
 import yaml
 
-# FIXME: set this dynamically
-DIRECTORY = '/media/pawantu/Data/git/keycut-data/default/'
+DIRECTORY = os.environ.get('KEYCUT_DATA', 'keycut-data/default')
 
 
 def grep(cmdline):
