@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import os
+# import os
 
 from . import render
 from .search import (
@@ -26,6 +26,8 @@ def reload(document, clear=True):
     global UI_DOCUMENT
     UI_DOCUMENT = document
     text = render.as_colored_text(document)
-    if clear:
-        os.system('clear')
+    # B605:start_process_with_a_shell
+    # B607:start_process_with_partial_path
+    # if clear:
+    #     os.system('clear')
     print(text)

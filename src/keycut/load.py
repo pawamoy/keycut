@@ -32,7 +32,7 @@ def from_yaml(app, command_line=None):
         if not file:
             return None
     with open(file) as f:
-        doc = yaml.load(f)
+        doc = yaml.safe_load(f)
     if isinstance(doc, dict):
         document = [dict(category=key, **v)
                     for key, value in doc.items() for v in value]

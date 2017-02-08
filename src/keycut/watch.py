@@ -2,7 +2,7 @@
 
 import json
 import time
-from subprocess import PIPE, Popen
+# from subprocess import Popen
 from threading import Thread
 
 import load
@@ -32,9 +32,10 @@ class XdotoolWatcher(Thread):
 
     @staticmethod
     def _run_command(command):
-        return Popen(
-            command, shell=True, stdout=PIPE
-        ).stdout.read().decode().rstrip('\n')
+        pass
+        # return Popen(
+        #     command, shell=True, stdout=PIPE
+        # ).stdout.read().decode().rstrip('\n')
 
     def run(self):
         name_command = 'xdotool getwindowfocus getwindowname'
@@ -62,9 +63,10 @@ class WindowFocusWatcher(Thread):
 
     @staticmethod
     def _run_command(command):
-        return Popen(
-            command, shell=True, stdout=PIPE
-        ).stdout.read().decode().rstrip('\n')
+        pass
+        # return Popen(
+        #     command, shell=True, stdout=PIPE
+        # ).stdout.read().decode().rstrip('\n')
 
     def run(self):
         wid_command = 'xprop -root | grep _NET_ACTIVE_WINDOW\(WINDOW\) | ' \
