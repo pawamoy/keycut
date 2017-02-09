@@ -1,0 +1,107 @@
+General:
+- keys: [Ctrl-Shift-q]
+  action: Quits Terminator.
+- keys: [Ctrl-Plus]
+  action: >
+    Increase font size. Note: this may require you to press shift,
+    depending on your keyboard.
+- keys: [Ctrl-Minus]
+  action: >
+    Decrease font size. Note: this may require you to press shift,
+    depending on your keyboard.
+- keys: [Ctrl-Zero]
+  action: Restore font size to original setting.
+- keys: [F11]
+  action: Toggle fullscreen.
+- keys: [Ctrl-Shift-r]
+  action: Reset terminal state.
+- keys: [Ctrl-Shift-g]
+  action: Reset terminal state and clear window.
+- keys: [Super-g]
+  action: Group all terminals so that any input sent to one of them, goes to all of them.
+- keys: [Super-Shift-g]
+  action: Remove grouping from all terminals.
+- keys: [Super-t]
+  action: >
+    Group all terminals in the current tab so input sent to one of them,
+    goes to all terminals in the current tab.
+- keys: [Super-Shift-t]
+  action: Remove grouping from all terminals in the current tab.
+- keys: [Ctrl-Shift-i]
+  action: >
+    Open a new window (note: unlike in previous releases, this window is
+    part of the same Terminator process).
+- keys: [Super-i]
+  action: Spawn a new Terminator process.
+- keys: [Ctrl-Shift-s]
+  action: Hide/Show Scrollbar.
+- keys: [Ctrl-Shift-f]
+  action: Search within terminal scrollback.
+- keys: [Ctrl-Shift-c]
+  action: Copy selected text to clipboard.
+- keys: [Ctrl-Shift-v]
+  action: Paste clipboard text.
+
+Layout:
+- keys: [Super-r]
+  action: Rotate terminals clockwise.
+- keys: [Super-Shift-r]
+  action: Rotate terminals counter-clockwise.
+- keys: [Ctrl-Shift-o]
+  action: Split terminals Horizontally.
+- keys: [Ctrl-Shift-e]
+  action: Split terminals Vertically.
+- keys: [Ctrl-Shift-Right]
+  action: Move parent dragbar Right.
+- keys: [Ctrl-Shift-Left]
+  action: Move parent dragbar Left.
+- keys: [Ctrl-Shift-Up]
+  action: Move parent dragbar Up.
+- keys: [Ctrl-Shift-Down]
+  action: Move parent dragbar Down.
+- keys: [Ctrl-Shift-w]
+  action: Close the current terminal.
+- keys: [Drag and Drop]
+  action: >
+    The layout can be modified by moving terminals with Drag and Drop.
+    To start dragging a terminal, click and hold on its titlebar.
+    Alternatively, hold down Ctrl, click and hold the right mouse button.
+    Then, **Release Ctrl**. You can now drag the terminal
+    to the point in the layout you would like it to be.
+    The zone where the terminal would be inserted will be highlighted.
+
+Focus:
+- keys: [Ctrl-Shift-n, Ctrl-Tab]
+  action: >
+    Move to next terminal within the same tab, use Ctrl-PageDown to move to the next tab.
+    If cycle_term_tab is False, cycle within the same tab will be disabled.
+- keys: [Ctrl-Shift-p, Ctrl-Shift-Tab]
+  action: >
+    Move to previous terminal within the same tab, use Ctrl-PageUp to move to the previous tab.
+    If cycle_term_tab is False, cycle within the same tab will be disabled.
+- keys: [Alt-Up]
+  action: Move to the terminal above the current one.
+- keys: [Alt-Down]
+  action: Move to the terminal below the current one.
+- keys: [Alt-Left]
+  action: Move to the terminal left of the current one.
+- keys: [Alt-Right]
+  action: Move to the terminal right of the current one.
+- keys: [Ctrl-Shift-x]
+  action: Toggle between showing all terminals and only showing the current one (maximise).
+- keys: [Ctrl-Shift-z]
+  action: >
+    Toggle between showing all terminals and only showing
+    a scaled version of the current one (zoom).
+
+Tabs:
+- keys: [Ctrl-PageDown]
+  action: Move to next Tab.
+- keys: [Ctrl-PageUp]
+  action: Move to previous Tab.
+- keys: [Ctrl-Shift-t]
+  action: Open new tab.
+- keys: [Ctrl-Shift-PageDown]
+  action: Swap tab position with next Tab.
+- keys: [Ctrl-Shift-PageUp]
+  action: Swap tab position with previous Tab.
