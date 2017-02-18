@@ -63,7 +63,6 @@ The yellow parts are the one that matched a pattern using a regular expression.
 
 .. image:: http://i.imgur.com/ZaqTOUb.png
 
-=======
 License
 =======
 
@@ -76,7 +75,7 @@ Installation
 
 ::
 
-    pip install keycut
+    [sudo -H] pip install keycut
 
 You will also need to download the data by cloning the repository somewhere:
 
@@ -116,14 +115,6 @@ Development
 ===========
 
 To run all the tests: ``tox``
-
-License
-=======
-
-Copyright (c) 2015 Timothée Mazzucotelli
-
-This Source Code is subject to the terms of the Mozilla Public
-License, v. 2.0. See the LICENSE file for more details.
 
 Todo
 ====
