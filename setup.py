@@ -29,7 +29,7 @@ def read(*names, **kwargs):
 
 setup(
     name='keycut',
-    version='0.2.0',
+    version='0.2.1',
     license='ISC',
     description='Helper tool to show and search shortcuts '
                 'for your favorite programs.',
