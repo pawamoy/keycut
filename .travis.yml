@@ -1,97 +1,24 @@
 sudo: false
 language: python
-
-
 branches:
-  only:
-    - master
-
-
+  only: [master]
 cache:
-  directories:
-    - "$HOME/.cache/pip"
-
-
+  directories: [$HOME/.cache/pip]
 matrix:
   include:
-    - python: '3.5'
-      env: TOX_ENV=check
-    - python: '3.5'
-      env: TOX_ENV=docs
-    - python: '3.5'
-      env: TOX_ENV=linkcheck
-    
-      
-    
-      
-        
-    - python: '2.7'
-      env: TOX_ENV=py27
-        
-      
-    
-      
-    
-      
-    
-      
-        
-    - python: '3.4'
-      env: TOX_ENV=py34
-        
-      
-    
-      
-        
-    - python: '3.5'
-      env: TOX_ENV=py35
-        
-      
-    
-      
-    
-      
-        
-    - python: '3.6'
-      env: TOX_ENV=py36
-        
-      
-    
-      
-    
-      
-        
-    - python: '3.7-dev'
-      env: TOX_ENV=py37-dev
-        
-      
-    
-    
-      
-    - python: 'pypy'
-      env: TOX_ENV=pypy
-      
-    
+  - {python: '3.5', env: TOX_ENV=check}
+  - {python: '3.5', env: TOX_ENV=docs}
+  - {python: '3.5', env: TOX_ENV=linkcheck}
+  - {python: '2.7', env: 'TOX_ENV=py27,codecov'}
+  - {python: '3.4', env: 'TOX_ENV=py34,codecov'}
+  - {python: '3.5', env: 'TOX_ENV=py35,codecov'}
+  - {python: '3.6', env: 'TOX_ENV=py36,codecov'}
+  - {python: 3.7-dev, env: 'TOX_ENV=py37-dev,codecov'}
+  - {python: pypy, env: 'TOX_ENV=pypy,codecov'}
   fast_finish: true
   allow_failures:
-    - python: '3.5'
-      env: TOX_ENV=linkcheck
-    
-      
-    
-      
-    
-      
-    - python: 3.7-dev
-      
-    
-
-
-
-install:
-  - pip install -r requirements/ci.txt
-script:
-  - tox -e ${TOX_ENV},codecov
-after_success:
-  - codecov
-  
+  - {python: '3.5', env: TOX_ENV=linkcheck}
+  - {python: 3.7-dev}
+install: [pip install -r requirements/ci.txt]
+script: ['tox -e ${TOX_ENV}']
+after_success: [tox -e codecov]

@@ -40,7 +40,6 @@ default_context:
     release_date:                    '2016-01-15'
     repo_name:                       'keycut'
     requiresio:                      'no'
-    scrutinizer:                     'no'
     travis:                          'yes'
     version:                         '0.1.0'
     website:                         'http://pawamoy.github.io/'

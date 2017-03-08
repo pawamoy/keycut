@@ -27,7 +27,6 @@ KeyCut
     :target: https://landscape.io/github/Pawamoy/keycut/
     :alt: Code Quality Status
 
-
 .. |pyup| image:: https://pyup.io/repos/github/pawamoy/keycut/shield.svg
     :target: https://pyup.io/repos/github/pawamoy/keycut/
     :alt: Updates
@@ -66,7 +65,8 @@ Installation
 Documentation
 =============
 
-https://github.com/Pawamoy/keycut/wiki
+http://keycut.readthedocs.io/en/latest/
+
 
 Development
 ===========
