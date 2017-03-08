@@ -31,7 +31,7 @@ default_context:
     full_name:                       'Timothee Mazzucotelli'
     github_username:                 'Pawamoy'
     gitter:                          'yes'
-    landscape:                       'yes'
+    landscape:                       'no'
     package_name:                    'keycut'
     project_name:                    'KeyCut'
     project_short_description:       'Helper tool to show and search shortcuts for your favorite programs.'
