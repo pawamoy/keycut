@@ -123,5 +123,5 @@ Todo
 - Interactive UI with search commands
 - Follow the principles in `keycut-data`_ repo (inheritance, attributes)
 
-.. _keycut-data : https://github.com/Pawamoy/keycut-data
-.. _keycut-data README : https://github.com/Pawamoy/keycut-data/blob/master/README.md
+.. _keycut-data: https://github.com/Pawamoy/keycut-data
+.. _keycut-data README: https://github.com/Pawamoy/keycut-data/blob/master/README.md

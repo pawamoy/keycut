@@ -19,3 +19,4 @@ Mazzucotelli
 repo
 stdout
 Todo
+Cookiecutterize
