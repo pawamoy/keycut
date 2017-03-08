@@ -8,7 +8,6 @@ KeyCut
 
 |travis|
 |codacy|
-|landscape|
 |version|
 |wheel|
 |pyup|
@@ -18,10 +17,6 @@ KeyCut
 .. |travis| image:: https://travis-ci.org/Pawamoy/keycut.svg?branch=master
     :alt: Travis-CI Build Status
     :target: https://travis-ci.org/Pawamoy/keycut/
-
-.. |landscape| image:: https://landscape.io/github/Pawamoy/keycut/master/landscape.svg?style=flat
-    :target: https://landscape.io/github/Pawamoy/keycut/
-    :alt: Code Quality Status
 
 .. |codacy| image:: https://api.codacy.com/project/badge/Grade/REPLACE_WITH_PROJECT_ID
     :target: https://www.codacy.com/app/Pawamoy/keycut/
