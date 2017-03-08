@@ -6,7 +6,7 @@ KeyCut
 
 
 |travis|
-|codecov|
+|codacy|
 |landscape|
 |version|
 |wheel|
@@ -18,16 +18,16 @@ KeyCut
     :alt: Travis-CI Build Status
     :target: https://travis-ci.org/Pawamoy/keycut/
 
-.. |codecov| image:: https://codecov.io/github/Pawamoy/keycut/coverage.svg?branch=master
-    :alt: Coverage Status
-    :target: https://codecov.io/github/Pawamoy/keycut/
-
 .. |landscape| image:: https://landscape.io/github/Pawamoy/keycut/master/landscape.svg?style=flat
     :target: https://landscape.io/github/Pawamoy/keycut/
     :alt: Code Quality Status
 
-.. |pyup| image:: https://pyup.io/repos/github/pawamoy/keycut/shield.svg
-    :target: https://pyup.io/repos/github/pawamoy/keycut/
+.. |codacy| image:: https://api.codacy.com/project/badge/Grade/REPLACE_WITH_PROJECT_ID
+    :target: https://www.codacy.com/app/Pawamoy/keycut/
+    :alt: Codacy Code Quality Status
+
+.. |pyup| image:: https://pyup.io/account/repos/github/pawamoy/keycut/shield.svg
+    :target: https://pyup.io/account/repos/github/pawamoy/keycut/
     :alt: Updates
 
 .. |gitter| image:: https://badges.gitter.im/Pawamoy/keycut.svg
@@ -68,7 +68,7 @@ License
 
 Software licensed under `ISC`_ license.
 
-.. _ISC : https://www.isc.org/downloads/software-support-policy/isc-license/
+.. _ISC: https://www.isc.org/downloads/software-support-policy/isc-license/
 
 Installation
 ============
