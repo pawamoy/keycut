@@ -109,7 +109,8 @@ Show all bash shortcuts matching *proc* (in Category, Action, or Keys):
 Documentation
 =============
 
-https://github.com/Pawamoy/keycut/wiki
+http://keycut.readthedocs.io/en/latest/
+
 
 Development
 ===========
