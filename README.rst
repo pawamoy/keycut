@@ -21,8 +21,8 @@ KeyCut
     :target: https://www.codacy.com/app/Pawamoy/keycut/dashboard
     :alt: Codacy Code Quality Status
 
-.. |pyup| image:: https://pyup.io/account/repos/github/pawamoy/keycut/shield.svg
-    :target: https://pyup.io/account/repos/github/pawamoy/keycut/
+.. |pyup| image:: https://pyup.io/repos/github/Pawamoy/keycut/shield.svg
+    :target: https://pyup.io/repos/github/Pawamoy/keycut/
     :alt: Updates
 
 .. |gitter| image:: https://badges.gitter.im/Pawamoy/keycut.svg
