@@ -17,8 +17,8 @@ KeyCut
     :alt: Travis-CI Build Status
     :target: https://travis-ci.org/Pawamoy/keycut/
 
-.. |codacy| image:: https://api.codacy.com/project/badge/Grade/REPLACE_WITH_PROJECT_ID
-    :target: https://www.codacy.com/app/Pawamoy/keycut/
+.. |codacy| image:: https://api.codacy.com/project/badge/Grade/d6b55dcf0ea3428d902b7d291c0805ce
+    :target: https://www.codacy.com/app/Pawamoy/keycut/dashboard
     :alt: Codacy Code Quality Status
 
 .. |pyup| image:: https://pyup.io/account/repos/github/pawamoy/keycut/shield.svg
