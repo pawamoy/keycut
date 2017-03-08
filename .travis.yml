@@ -24,4 +24,3 @@ install:
 - git clone https://github.com/Pawamoy/keycut-data keycut_data
 - export KEYCUT_DATA="${PWD}/keycut_data/default"
 script: ['tox -e ${TOX_ENV}']
-after_success: [tox -e codacy]
