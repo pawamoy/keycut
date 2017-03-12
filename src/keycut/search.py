@@ -30,7 +30,7 @@ def _search(document, pattern, key=None, word=False):
                     added = True
             item['keys_pos'] = {}
             for key in item['keys']:
-                mo = prog.search(str(key))
+                mo = prog.search(str(key.encode('utf-8')))
                 if mo:
                     item['keys_pos'][key] = []
                     for index, group in enumerate(mo.groups()):

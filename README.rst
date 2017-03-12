@@ -30,10 +30,6 @@ KeyCut
     :target: https://pyup.io/repos/github/Pawamoy/keycut/
     :alt: Updates
 
-.. |gitter| image:: https://badges.gitter.im/Pawamoy/keycut.svg
-    :target: https://gitter.im/Pawamoy/keycut
-    :alt: Join the chat at https://gitter.im/Pawamoy/keycut
-
 .. |version| image:: https://img.shields.io/pypi/v/keycut.svg?style=flat
     :target: https://pypi.python.org/pypi/keycut/
     :alt: PyPI Package latest release
@@ -41,6 +37,11 @@ KeyCut
 .. |wheel| image:: https://img.shields.io/pypi/wheel/keycut.svg?style=flat
     :target: https://pypi.python.org/pypi/keycut/
     :alt: PyPI Wheel
+
+.. |gitter| image:: https://badges.gitter.im/Pawamoy/keycut.svg
+    :target: https://gitter.im/Pawamoy/keycut
+    :alt: Join the chat at https://gitter.im/Pawamoy/keycut
+
 
 
 .. end-badges
@@ -109,7 +110,7 @@ Show all bash shortcuts matching *proc* (in Category, Action, or Keys):
 Documentation
 =============
 
-http://keycut.readthedocs.io/en/latest/
+http://KeyCut.readthedocs.io/en/latest/
 
 
 Development
