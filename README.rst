@@ -110,7 +110,7 @@ Show all bash shortcuts matching *proc* (in Category, Action, or Keys):
 Documentation
 =============
 
-http://KeyCut.readthedocs.io/en/latest/
+http://keycut.readthedocs.io/en/latest/
 
 
 Development
