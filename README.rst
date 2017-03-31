@@ -38,6 +38,7 @@ KeyCut
 .. |wheel| image:: https://img.shields.io/pypi/wheel/keycut.svg?style=flat
     :target: https://pypi.python.org/pypi/keycut/
     :alt: PyPI Wheel
+
 .. |gitter| image:: https://badges.gitter.im/Pawamoy/keycut.svg
     :target: https://gitter.im/Pawamoy/keycut
     :alt: Join the chat at https://gitter.im/Pawamoy/keycut
@@ -65,8 +66,9 @@ Installation
 Documentation
 =============
 
-http://KeyCut.readthedocs.io/en/latest/
+`On ReadTheDocs`_
 
+.. _`On ReadTheDocs`: http://keycut.readthedocs.io/
 
 Development
 ===========
