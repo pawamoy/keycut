@@ -12,7 +12,7 @@ Indices
 docstrings
 keycut
 Pawamoy
-KeyCut
+keycut
 Timothee
 Timothée
 Mazzucotelli

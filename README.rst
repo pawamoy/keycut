@@ -110,8 +110,9 @@ Show all bash shortcuts matching *proc* (in Category, Action, or Keys):
 Documentation
 =============
 
-http://keycut.readthedocs.io/en/latest/
+`On ReadTheDocs`_
 
+.. _`On ReadTheDocs`: http://keycut.readthedocs.io/
 
 Development
 ===========
