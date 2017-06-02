@@ -34,6 +34,8 @@ default_context:
     package_name:                    'keycut'
     project_name:                    'KeyCut'
     project_short_description:       'Helper tool to show and search shortcuts for your favorite programs.'
+    prospector:                      'yes'
+    pylama:                          'no'
     python_versions:                 '2.7,3.4,3.5,3.6,3.7-dev,pypy'
     pyup:                            'yes'
     release_date:                    '2016-01-15'
