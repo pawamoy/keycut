@@ -2,6 +2,9 @@
 KeyCut
 ======
 
+.. image:: docs/logo.jpg
+    :alt: KeyCut Logo
+
 .. start-badges
 
 
