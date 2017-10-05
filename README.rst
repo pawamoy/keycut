@@ -32,11 +32,11 @@ KeyCut
     :alt: Updates
 
 .. |version| image:: https://img.shields.io/pypi/v/keycut.svg?style=flat
-    :target: https://pypi.python.org/pypi/keycut/
+    :target: https://pypi.org/project/keycut/
     :alt: PyPI Package latest release
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/keycut.svg?style=flat
-    :target: https://pypi.python.org/pypi/keycut/
+    :target: https://pypi.org/project/keycut/
     :alt: PyPI Wheel
 
 .. |gitter| image:: https://badges.gitter.im/Pawamoy/keycut.svg
