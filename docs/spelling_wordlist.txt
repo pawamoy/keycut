@@ -10,6 +10,8 @@ offline
 online
 pawamoy
 pawamoy@pm.me
+pipx
+proc
 pyenv
 pypi
 Refactor

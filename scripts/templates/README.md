@@ -23,7 +23,7 @@ Shortcut data are provided by the [keycut-data][1].
 
 This repository contains the sources for a Python implementation of KeyCut.
 
-[keycut-data]: https://github.com/pawamoy/keycut-data
+[1]: https://github.com/pawamoy/keycut-data
 
 ## How it looks
 
