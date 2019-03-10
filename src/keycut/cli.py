@@ -32,16 +32,16 @@ def main(args=None):
 
     if document:
         if args.pattern:
-            document = search(document, pattern)
+            document = search(document, args.pattern)
         ui.reload(document, clear=False)
     else:
-        print_err("Document not found: %s" % app)
+        print_err("Document not found: %s" % args.app)
 
     return 0
 
 
 def get_parser():
     parser = argparse.ArgumentParser(prog="keycut", description="Command description.")
-    parser.add_argument("app", metavar="APP", nargs=1, help="The app to print shortcuts of.")
+    parser.add_argument("app", metavar="APP", help="The app to print shortcuts of.")
     parser.add_argument("pattern", metavar="PATTERN", nargs="?", help="A regex pattern to search for.")
     return parser
