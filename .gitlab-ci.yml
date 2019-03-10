@@ -60,6 +60,7 @@ check-safety:
     - poetry config settings.virtualenvs.in-project true
     - poetry install -vv
     - poetry --version
+    - git clone https://github.com/pawamoy/keycut-data .
   script: poetry run pytest -v
 
 python3.6:

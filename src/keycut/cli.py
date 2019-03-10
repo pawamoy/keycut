@@ -16,7 +16,6 @@ Also see http://click.pocoo.org/5/setuptools/#setuptools-integration.
 """
 
 import argparse
-import sys
 
 from . import load, ui
 from .search import search

@@ -21,14 +21,14 @@ def as_text(document):
 
 
 def _color_match(line, positions, default):
-    l = len(positions)
+    length = len(positions)
     # Concat until first pos
     s = [_color(line[: positions[0][0]], default)]
     # For each (start, end), concat colored from start to end
     for index, pos in enumerate(positions):
         s.append(_color(line[pos[0] : pos[1]], MATCH_COLOR))
         # If not last (start, end), concat until next start
-        if index < l - 1:
+        if index < length - 1:
             s.append(_color(line[pos[1] : positions[index + 1][0]], default))
         # Else concat until end of string
         else:

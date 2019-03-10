@@ -9,7 +9,7 @@ def _search(document, pattern, key=None, word=False):
     if key is not None:
         return [item for item in document if prog.search(item[key])]
     else:
-        l = []
+        items = []
         for item in document:
             added = False
             mo = prog.search(item["action"])
@@ -18,7 +18,7 @@ def _search(document, pattern, key=None, word=False):
                 for index, group in enumerate(mo.groups()):
                     item["action_pos"].append(mo.span(index))
                 if not added:
-                    l.append(item)
+                    items.append(item)
                     added = True
             mo = prog.search(item["category"])
             if mo:
@@ -26,7 +26,7 @@ def _search(document, pattern, key=None, word=False):
                 for index, group in enumerate(mo.groups()):
                     item["category_pos"].append(mo.span(index))
                 if not added:
-                    l.append(item)
+                    items.append(item)
                     added = True
             item["keys_pos"] = {}
             for key in item["keys"]:
@@ -36,9 +36,9 @@ def _search(document, pattern, key=None, word=False):
                     for index, group in enumerate(mo.groups()):
                         item["keys_pos"][key].append(mo.span(index))
                     if not added:
-                        l.append(item)
+                        items.append(item)
                         added = True
-        return l if l else document
+        return items if items else document
 
 
 def search(document, pattern):

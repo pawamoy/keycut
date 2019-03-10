@@ -1,4 +1,7 @@
+appveyor
 Changelog
+codecov
+dotfiles
 github.com
 ISC
 keycut
@@ -9,3 +12,5 @@ pyenv
 sexualized
 Timothée
 timothee.mazzucotelli@pm.me
+tox
+versioning
