@@ -1,76 +1,55 @@
-# -*- coding: utf-8 -*-
-
-"""Sphinx configuration file."""
-
-from __future__ import unicode_literals
-
 import os
+from pathlib import Path
 
+import toml
+from recommonmark.transform import AutoStructify
 
+metadata = toml.load(Path(__file__).parent.parent / "pyproject.toml")["tool"]["poetry"]
+project = metadata["name"]
+repository = metadata["repository"].rstrip("/")
+year = "2015"
+author = metadata["authors"][0]
+copyright = "{0}, {1}".format(year, author)
+version = release = metadata["version"]
+master_doc = "index"
 
+extensions = ["sphinx.ext.autodoc", "sphinx.ext.napoleon", "sphinx.ext.viewcode", "recommonmark"]
 
-extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.coverage',
-    'sphinx.ext.doctest',
-    'sphinx.ext.extlinks',
-    'sphinx.ext.ifconfig',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.todo',
-    'sphinx.ext.viewcode',
-]
+# Spelling extension, only used when checking it
+if os.environ.get("SPELLING", None):
+    extensions.append("sphinxcontrib.spelling")
 
-autodoc_default_flags = [
-    'members',
-    'special-members',
-    'show-inheritance'
-]
+# Auto-documentation directives in RST files
+autodoc_default_options = {"members": None, "special-members": "__init__", "exclude-members": "__weakref__"}
 
-if os.getenv('SPELLCHECK'):
-    extensions += 'sphinxcontrib.spelling',
-    spelling_show_suggestions = True
-    spelling_lang = 'en_US'
+# ReadTheDocs theme for local builds
+on_rtd = os.environ.get("READTHEDOCS", None) == "True"
+if not on_rtd:
+    html_theme = "sphinx_rtd_theme"
 
-source_suffix = '.rst'
-master_doc = 'index'
-project = u'KeyCut'
-year = '2017'
-author = u'Timothee Mazzucotelli'
-copyright = '{0}, {1}'.format(year, author)
-version = release = u'0.2.1'
+# Some rendering options
+html_last_updated_fmt = "%b %d, %Y"
+html_context = {"extra_css_files": ["_static/extra.css"]}
+html_static_path = ["extra.css"]
 
-pygments_style = 'trac'
-templates_path = ['.']
-extlinks = {
-    'issue': ('https://github.com/Pawamoy/keycut/issues/%s', '#'),
-    'pr': ('https://github.com/Pawamoy/keycut/pull/%s', 'PR #'),
-}
-
-# on_rtd is whether we are on readthedocs.org
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-
-if not on_rtd:  # only set the theme if we're building docs locally
-    html_theme = 'sphinx_rtd_theme'
-
-html_last_updated_fmt = '%b %d, %Y'
-html_split_index = False
-html_sidebars = {
-   '**': ['searchbox.html', 'globaltoc.html', 'sourcelink.html'],
-}
-html_short_title = '%s-%s' % (project, version)
-
-html_context = {
-    'extra_css_files': [
-        '_static/extra.css',
-    ],
-}
-
-html_static_path = [
-    "extra.css",
-]
-
+# Google Style docstrings
 napoleon_use_ivar = True
 napoleon_use_rtype = False
 napoleon_use_param = False
-suppress_warnings = ["image.nonlocal_uri"]
+
+# Documentation in Markdown
+source_suffix = [".rst"]
+source_parsers = {".md": "recommonmark.parser.CommonMarkParser"}
+doc_root = repository + "/tree/master/docs/"
+
+
+def setup(app):
+    app.add_config_value(
+        "recommonmark_config",
+        {
+            "url_resolver": lambda url: doc_root + url,
+            "auto_toc_tree_section": "Welcome to " + metadata["name"] + "'s documentation!",
+        },
+        True,
+    )
+    app.add_transform(AutoStructify)

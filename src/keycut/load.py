@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import os
+
 import yaml
 
-DIRECTORY = os.environ.get('KEYCUT_DATA', 'keycut-data/default')
+DIRECTORY = os.environ.get("KEYCUT_DATA", "keycut-data/default")
 
 
 def grep(cmdline):
@@ -20,7 +21,7 @@ def isfile(file):
 
 
 def check(name, path=DIRECTORY):
-    file = os.path.join(path, name) + '.yml'
+    file = os.path.join(path, name) + ".yml"
     return file, isfile(file)
 
 
@@ -33,8 +34,7 @@ def from_yaml(app, command_line=None):
     with open(file) as f:
         doc = yaml.safe_load(f)
     if isinstance(doc, dict):
-        document = [dict(category=key, **v)
-                    for key, value in doc.items() for v in value]
+        document = [dict(category=key, **v) for key, value in doc.items() for v in value]
     else:
-        document = [dict(category='', **value) for value in doc]
+        document = [dict(category="", **value) for value in doc]
     return document

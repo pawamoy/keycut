@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
-
 """
-Entrypoint module, in case you use `python -mkeycut`.
+Entry-point module, in case you use `python -m keycut`.
 
 Why does this file exist, and why __main__? For more info, read:
 
@@ -15,4 +13,4 @@ import sys
 from keycut.cli import main
 
 if __name__ == "__main__":
-    main(sys.argv)
+    sys.exit(main(sys.argv[1:]))
