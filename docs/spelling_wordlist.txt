@@ -6,11 +6,16 @@ github.com
 ISC
 keycut
 Mazzucotelli
+offline
+online
 pawamoy
 pawamoy@pm.me
 pyenv
+pypi
+screenshot
 sexualized
 Timothée
 timothee.mazzucotelli@pm.me
 tox
 versioning
+wiki
