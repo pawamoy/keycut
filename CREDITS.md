@@ -22,11 +22,13 @@ These projects were used to build keycut. **Thank you!**
 [`pytest-cov`](https://github.com/pytest-dev/pytest-cov) |
 [`pytest-sugar`](http://pivotfinland.com/pytest-sugar/) |
 [`pytest-xdist`](https://github.com/pytest-dev/pytest-xdist) |
+[`PyYAML`](http://pyyaml.org/wiki/PyYAML) |
 [`recommonmark`](UNKNOWN) |
 [`safety`](https://github.com/pyupio/safety) |
 [`Sphinx`](http://sphinx-doc.org/) |
 [`sphinx-rtd-theme`](https://github.com/rtfd/sphinx_rtd_theme/) |
 [`sphinxcontrib-spelling`](https://github.com/sphinx-contrib/spelling) |
+[`termcolor`](http://pypi.python.org/pypi/termcolor) |
 [`toml`](https://github.com/uiri/toml)
 
 ### Indirect dependencies
@@ -75,14 +77,12 @@ These projects were used to build keycut. **Thank you!**
 [`pyparsing`](https://github.com/pyparsing/pyparsing/) |
 [`pytest-forked`](https://github.com/pytest-dev/pytest-forked) |
 [`pytz`](http://pythonhosted.org/pytz) |
-[`PyYAML`](http://pyyaml.org/wiki/PyYAML) |
 [`requests`](http://python-requests.org) |
 [`six`](https://github.com/benjaminp/six) |
 [`smmap2`](https://github.com/gitpython-developers/smmap) |
 [`snowballstemmer`](https://github.com/shibukawa/snowball_py) |
 [`sphinxcontrib-websupport`](http://sphinx-doc.org/) |
 [`stevedore`](https://docs.openstack.org/stevedore/latest/) |
-[`termcolor`](http://pypi.python.org/pypi/termcolor) |
 [`traitlets`](http://ipython.org) |
 [`urllib3`](https://urllib3.readthedocs.io/) |
 [`wcwidth`](https://github.com/jquast/wcwidth)

@@ -320,6 +320,7 @@ jinja2 = "*"
 reference = "05bf3ec553f0b91293ed37c021cc01ffcafd641c"
 type = "git"
 url = "https://github.com/mattrobenolt/jinja2-cli.git"
+
 [[package]]
 category = "main"
 description = "Safely add untrusted strings to HTML/XML markup."
@@ -550,7 +551,7 @@ python-versions = "*"
 version = "2018.9"
 
 [[package]]
-category = "dev"
+category = "main"
 description = "YAML parser and emitter for Python"
 name = "pyyaml"
 optional = false
@@ -690,7 +691,7 @@ pbr = ">=2.0.0,<2.1.0 || >2.1.0"
 six = ">=1.10.0"
 
 [[package]]
-category = "dev"
+category = "main"
 description = "ANSII Color formatting for output in terminal."
 name = "termcolor"
 optional = false
@@ -735,7 +736,7 @@ python-versions = "*"
 version = "0.1.7"
 
 [metadata]
-content-hash = "8fb1f6ea146464fa16ac0a62b9166ada4956663f10f1bd1cb9cc4e313550bfe6"
+content-hash = "193e33d9c181c154597e3ccc1b85faa837af7e2da4dd146d25ae4635ee17c3dc"
 python-versions = "^3.6"
 
 [metadata.hashes]
