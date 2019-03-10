@@ -30,7 +30,7 @@ if not on_rtd:
 # Some rendering options
 html_last_updated_fmt = "%b %d, %Y"
 html_context = {"extra_css_files": ["_static/extra.css"]}
-html_static_path = ["extra.css"]
+html_static_path = ["extra.css", "logo.jpg"]
 
 # Google Style docstrings
 napoleon_use_ivar = True

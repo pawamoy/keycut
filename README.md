@@ -5,6 +5,8 @@ IMPORTANT:
 -->
 
 # keycut
+![logo](logo.jpg)
+
 [![pipeline status](https://github.com/pawamoy/keycut/badges/master/pipeline.svg)](https://github.com/pawamoy/keycut/commits/master)
 [![coverage report](https://github.com/pawamoy/keycut/badges/master/coverage.svg)](https://github.com/pawamoy/keycut/commits/master)
 [![documentation](https://img.shields.io/readthedocs/keycut.svg?style=flat)](https://keycut.readthedocs.io/en/latest/index.html)
