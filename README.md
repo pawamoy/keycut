@@ -12,6 +12,23 @@ IMPORTANT:
 
 A command line tool that helps you remembering ALL the numerous keyboard shortcuts of ALL your favorite programs.
 
+KeyCut (for keyboard shortcut) is a command line tool
+that helps you remembering the numerous keyboard shortcuts
+of your favorite programs, both graphical and command line ones,
+by allowing you to print them quickly in a console and search through them.
+
+Shortcut data are provided by the [keycut-data][1].
+
+This repository contains the sources for a Python implementation of KeyCut.
+
+[keycut-data]: https://github.com/pawamoy/keycut-data
+
+## How it looks
+
+The yellow parts are the one that matched a pattern using a regular expression.
+
+![screenshot](http://i.imgur.com/ZaqTOUb.png)
+
 ## Requirements
 keycut requires Python 3.6 or above.
 
@@ -49,17 +66,42 @@ curl https://raw.githubusercontent.com/cs01/pipx/master/get-pipx.py | python3
 pipx install --python python3.6 keycut
 ```
 
-## Usage (as a library)
-TODO
+You will also need to download the data by cloning the repository somewhere:
 
-## Usage (command-line)
 ```
-usage: keycut [-h] [NAME [NAME ...]]
+git clone https://github.com/pawamoy/keycut-data ~/.keycut-data
+```
+
+## Usage
+The program needs to know where the data are. By default, it will search
+in the (relative) `keycut-data/default` directory.
+
+```
+export KEYCUT_DATA=~/.keycut-data/default
+```
+
+Show all bash shortcuts:
+
+```
+keycut bash
+```
+
+Show all bash shortcuts matching *proc* (in Category, Action, or Keys):
+
+```
+keycut bash proc
+```
+
+Command-line help:
+
+```
+usage: keycut [-h] APP [PATTERN]
 
 Command description.
 
 positional arguments:
-  NAME        A name of something.
+  APP         The app to print shortcuts of.
+  PATTERN     A regex pattern to search for.
 
 optional arguments:
   -h, --help  show this help message and exit
