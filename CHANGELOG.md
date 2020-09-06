@@ -4,12 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [v0.3.0](https://gitlab.com/pawamoy/keycut/tags/v0.3.0) ([compare](https://gitlab.com/pawamoy/keycut/compare/v0.2.1...v0.3.0)) - 2019-03-10
+<!-- insertion marker -->
+## [v0.3.0](https://gitlab.com/pawamoy/keycut/tags/v0.3.0) - 2019-03-10
+
+<small>[Compare with 0.2.1](https://gitlab.com/pawamoy/keycut/compare/v0.2.1...v0.3.0)</small>
 
 ### Refactor
 - The project now uses Poetry! ([294fc17](https://gitlab.com/pawamoy/keycut/commit/294fc174922d694b010853aa6f50c1751f805bda)).
 
-## [v0.2.1](https://gitlab.com/pawamoy/keycut/tags/v0.2.1) ([compare](https://gitlab.com/pawamoy/keycut/compare/v0.2.0...v0.2.1)) - 2017-02-28
+## [v0.2.1](https://gitlab.com/pawamoy/keycut/tags/v0.2.1) - 2017-02-28
+
+<small>[Compare with 0.2.0](https://gitlab.com/pawamoy/keycut/compare/v0.2.0...v0.2.1)</small>
 
 ### Changed
 - Change license in README ([06eed4b](https://gitlab.com/pawamoy/keycut/commit/06eed4beadc412f8ca6d93d897cb2c36d8609db3)).
@@ -20,7 +25,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fix imports and tox configuration ([e20a74e](https://gitlab.com/pawamoy/keycut/commit/e20a74eedcd0b068037614bb51d8017c5c2aa011)).
 - Fix tests (data path), change license from MPL 2.0 to ISC ([6ad4b07](https://gitlab.com/pawamoy/keycut/commit/6ad4b07d1d2643f8f8ed654b74338cbfa3cd5f0c)).
 
-## [v0.2.0](https://gitlab.com/pawamoy/keycut/tags/v0.2.0) ([compare](https://gitlab.com/pawamoy/keycut/compare/v0.1.0...v0.2.0)) - 2016-12-28
+## [v0.2.0](https://gitlab.com/pawamoy/keycut/tags/v0.2.0) - 2016-12-28
+
+<small>[Compare with 0.1.0](https://gitlab.com/pawamoy/keycut/compare/v0.1.0...v0.2.0)</small>
 
 ### Added
 - Add acknowledgments in README ([b4727e6](https://gitlab.com/pawamoy/keycut/commit/b4727e6dbc014edfbd3e45b32535a7b6c8fcf2ec)).
@@ -29,7 +36,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fix ``main.py`` ([2594310](https://gitlab.com/pawamoy/keycut/commit/25943101c2be9c9306ca02a01e7b7823fc03a5f0)).
 - Fix missing dotfiles... ([dea1209](https://gitlab.com/pawamoy/keycut/commit/dea1209597ad64bc052b7f521dbdf096689eb3db)).
 
-## [v0.1.0](https://gitlab.com/pawamoy/keycut/tags/v0.1.0) ([compare](https://gitlab.com/pawamoy/keycut/compare/4efb0bcca14e67c903eff6f15bfa9a21ee10fd7f...v0.1.0)) - 2016-01-15
+## [v0.1.0](https://gitlab.com/pawamoy/keycut/tags/v0.1.0) - 2016-01-15
+
+<small>[Compare with first commit](https://gitlab.com/pawamoy/keycut/compare/4efb0bcca14e67c903eff6f15bfa9a21ee10fd7f...v0.1.0)</small>
 
 ### Added
 - Add image to README ([a898097](https://gitlab.com/pawamoy/keycut/commit/a898097e01410c61b1a7198196e462ed9db3a7fb)).

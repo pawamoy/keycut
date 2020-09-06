@@ -1,16 +1,10 @@
-<!--
-IMPORTANT:
-  This file is generated from the template at 'scripts/templates/README.md'.
-  Please update the template instead of this file.
--->
-
 # keycut
-![logo](logo.jpg)
 
-[![pipeline status](https://gitlab.com/pawamoy/keycut/badges/master/pipeline.svg)](https://gitlab.com/pawamoy/keycut/pipelines)
-[![coverage report](https://gitlab.com/pawamoy/keycut/badges/master/coverage.svg)](https://gitlab.com/pawamoy/keycut/commits/master)
-[![documentation](https://img.shields.io/readthedocs/keycut.svg?style=flat)](https://keycut.readthedocs.io/en/latest/index.html)
+[![ci](https://github.com/pawamoy/keycut/workflows/ci/badge.svg)](https://github.com/pawamoy/keycut/actions?query=workflow%3Aci)
+[![documentation](https://img.shields.io/badge/docs-mkdocs%20material-blue.svg?style=flat)](https://pawamoy.github.io/keycut/)
 [![pypi version](https://img.shields.io/pypi/v/keycut.svg)](https://pypi.org/project/keycut/)
+
+![logo](logo.jpg)
 
 A command line tool that helps you remembering ALL the numerous keyboard shortcuts of ALL your favorite programs.
 
@@ -32,6 +26,7 @@ The yellow parts are the one that matched a pattern using a regular expression.
 ![screenshot](http://i.imgur.com/ZaqTOUb.png)
 
 ## Requirements
+
 keycut requires Python 3.6 or above.
 
 <details>
@@ -55,6 +50,7 @@ pyenv global system 3.6.8
 </details>
 
 ## Installation
+
 With `pip`:
 ```bash
 python3.6 -m pip install keycut
@@ -62,40 +58,36 @@ python3.6 -m pip install keycut
 
 With [`pipx`](https://github.com/pipxproject/pipx):
 ```bash
-python3 -m pip install --user pipx
+python3.6 -m pip install --user pipx
 
 pipx install --python python3.6 keycut
 ```
 
-You will also need to download the data by cloning the repository somewhere:
-
-```
-git clone https://github.com/pawamoy/keycut-data ~/.keycut-data
-```
-
 ## Usage
+
 The program needs to know where the data are. By default, it will search
 in the (relative) `keycut-data/default` directory.
 
-```
+```bash
 export KEYCUT_DATA=~/.keycut-data/default
 ```
 
 Show all bash shortcuts:
 
-```
+```bash
 keycut bash
 ```
 
 Show all bash shortcuts matching *proc* (in Category, Action, or Keys):
 
-```
+```bash
 keycut bash proc
 ```
 
 Command-line help:
 
-```
+```console
+$ keycut -h
 usage: keycut [-h] APP [PATTERN]
 
 Command description.
@@ -106,7 +98,4 @@ positional arguments:
 
 optional arguments:
   -h, --help  show this help message and exit
-
 ```
-
-

@@ -4,22 +4,23 @@ import json
 import time
 from threading import Thread
 
-import load
-import ui
-from search import search
+from keycut import load
+from keycut import ui
+from keycut.search import search
 
 
 class FirefoxWatcher(Thread):
-    # FIXME: do this dynamically
-    f = open("/home/pawantu/.mozilla/firefox/7vjr1dfd.default/" "sessionstore-backups/recovery.js", "r")
-    jdata = json.loads(f.read())
-    f.close()
-    tab_number = jdata["windows"][0]["selected"]
-    for win in jdata.get("windows"):
-        for tab in win.get("tabs"):
-            i = tab.get("index") - 1
-            if i == tab_number:
-                current_url = tab.get("entries")[i].get("url")
+    def run(self):
+        # FIXME: do this dynamically
+        f = open("/home/pawantu/.mozilla/firefox/7vjr1dfd.default/" "sessionstore-backups/recovery.js", "r")
+        jdata = json.loads(f.read())
+        f.close()
+        tab_number = jdata["windows"][0]["selected"]
+        for win in jdata.get("windows"):
+            for tab in win.get("tabs"):
+                i = tab.get("index") - 1
+                if i == tab_number:
+                    current_url = tab.get("entries")[i].get("url")
 
 
 class XdotoolWatcher(Thread):

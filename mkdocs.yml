@@ -1,0 +1,41 @@
+site_name: "keycut"
+site_description: "A command line tool that helps you remembering ALL the numerous keyboard shortcuts of ALL your favorite programs."
+site_url: "https://pawamoy.github.io/keycut"
+repo_url: "https://github.com/pawamoy/keycut"
+repo_name: "pawamoy/keycut"
+
+nav:
+  - Overview: index.md
+  - Reference:
+    - cli.py: reference/cli.md
+    - load.py: reference/load.md
+    - render.py: reference/render.md
+    - search.py: reference/search.md
+    - ui.py: reference/ui.md
+    - utils.py: reference/utils.md
+    - watch.py: reference/watch.md
+  - Contributing: contributing.md
+  - Code of Conduct: code_of_conduct.md
+  - Changelog: changelog.md
+  - Credits: credits.md
+
+theme:
+  name: material
+
+extra_css:
+  - css/mkdocstrings.css
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - pymdownx.superfences
+  - pymdownx.emoji
+  - toc:
+      permalink: "¤"
+
+plugins:
+  - search
+  - mkdocstrings:
+      watch:
+        - src/keycut
