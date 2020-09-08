@@ -4,8 +4,7 @@ import json
 import time
 from threading import Thread
 
-from keycut import load
-from keycut import ui
+from keycut import load, ui
 from keycut.search import search
 
 
