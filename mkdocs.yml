@@ -6,7 +6,7 @@ repo_name: "pawamoy/keycut"
 
 nav:
   - Overview: index.md
-  - Reference:
+  - API Reference:
     - cli.py: reference/cli.md
     - load.py: reference/load.md
     - render.py: reference/render.md
@@ -29,8 +29,11 @@ markdown_extensions:
   - admonition
   - codehilite:
       guess_lang: false
-  - pymdownx.superfences
   - pymdownx.emoji
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist
   - toc:
       permalink: "¤"
 
