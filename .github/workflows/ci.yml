@@ -2,11 +2,9 @@ name: ci
 
 on:
   push:
-    branches:
-    - master
   pull_request:
     branches:
-    - master
+    - main
 
 defaults:
   run:
@@ -33,68 +31,70 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - name: Fetch all tags
+      run: git fetch --depth=1 --tags
+
+    - name: Set up PDM
+      uses: pdm-project/setup-pdm@v4
       with:
-        python-version: 3.8
+        python-version: "3.8"
 
-    - name: Set up Poetry
-      run: pip install poetry
+    - name: Resolving dependencies
+      run: pdm lock -v --no-cross-platform -G ci-quality
 
-    - name: Set up the cache
-      uses: actions/cache@v1
-      with:
-        path: .poetry_cache
-        key: quality-poetry-cache
-
-    - name: Set up the project
-      run: poetry install -vv
+    - name: Install dependencies
+      run: pdm install -G ci-quality
 
     - name: Check if the documentation builds correctly
-      run: poetry run duty check-docs
+      run: pdm run duty check-docs
 
     - name: Check the code quality
-      run: poetry run duty check-code-quality
+      run: pdm run duty check-quality
 
     - name: Check if the code is correctly typed
-      run: poetry run duty check-types
+      run: pdm run duty check-types
 
     - name: Check for vulnerabilities in dependencies
-      run: |
-        pip install safety
-        poetry run duty check-dependencies
+      run: pdm run duty check-dependencies
+
+    - name: Check for breaking changes in the API
+      run: pdm run duty check-api
 
   tests:
 
     strategy:
+      max-parallel: 4
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.6, 3.7, 3.8, 3.9, 3.10.0]
-
+        os:
+        - ubuntu-latest
+        - macos-latest
+        - windows-latest
+        python-version:
+        - "3.8"
+        - "3.9"
+        - "3.10"
+        - "3.11"
+        - "3.12"
     runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.python-version == '3.12' }}
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+    - name: Set up PDM
+      uses: pdm-project/setup-pdm@v4
       with:
         python-version: ${{ matrix.python-version }}
+        allow-python-prereleases: true
 
-    - name: Set up Poetry
-      run: pip install poetry
+    - name: Resolving dependencies
+      run: pdm lock -v --no-cross-platform -G ci-tests
 
-    - name: Set up the cache
-      uses: actions/cache@v1
-      with:
-        path: .poetry_cache
-        key: tests-poetry-cache-${{ matrix.os }}-py${{ matrix.python-version }}
-
-    - name: Set up the project
-      run: poetry install -vv || { rm -rf .poetry_cache/virtualenvs/*; poetry install -vv; }
+    - name: Install dependencies
+      run: pdm install --no-editable -G ci-tests
 
     - name: Run the test suite
       run: poetry run duty test

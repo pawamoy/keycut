@@ -1,9 +1,8 @@
-"""
-keycut package.
+"""keycut package.
 
 A command line tool that helps you remembering ALL the numerous keyboard shortcuts of ALL your favorite programs.
 """
 
-from typing import List
+from __future__ import annotations
 
-__all__: List[str] = []  # noqa: WPS410 (the only __variable__ we use)
+__all__: list[str] = []

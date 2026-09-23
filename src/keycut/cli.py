@@ -1,3 +1,5 @@
+"""Module that contains the command line application."""
+
 # Why does this file exist, and why not put this in `__main__`?
 #
 # You might be tempted to import things from `__main__` later,
@@ -9,36 +11,44 @@
 # - When you import `__main__` it will get executed again (as a module) because
 #   there's no `keycut.__main__` in `sys.modules`.
 
-"""Module that contains the command line application."""
+from __future__ import annotations
 
 import argparse
-from typing import List, Optional
+import sys
+from typing import Any
 
-from . import load, ui
-from .search import search
-from .utils import print_err
+from keycut import debug, load, ui
+from keycut.search import search
+from keycut.utils import print_err
+
+
+class _DebugInfo(argparse.Action):
+    def __init__(self, nargs: int | str | None = 0, **kwargs: Any) -> None:
+        super().__init__(nargs=nargs, **kwargs)
+
+    def __call__(self, *args: Any, **kwargs: Any) -> None:  # noqa: ARG002
+        debug.print_debug_info()
+        sys.exit(0)
 
 
 def get_parser() -> argparse.ArgumentParser:
-    """
-    Return the CLI argument parser.
+    """Return the CLI argument parser.
 
     Returns:
         An argparse parser.
     """
-    parser = argparse.ArgumentParser(prog="keycut", description="Command description.")
-    parser.add_argument("app", metavar="APP", help="The app to print shortcuts of.")
-    parser.add_argument("pattern", metavar="PATTERN", nargs="?", help="A regex pattern to search for.")
+    parser = argparse.ArgumentParser(prog="keycut")
+    parser.add_argument("-V", "--version", action="version", version=f"%(prog)s {debug.get_version()}")
+    parser.add_argument("--debug-info", action=_DebugInfo, help="Print debug information.")
     return parser
 
 
-def main(args: Optional[List[str]] = None) -> int:
-    """
-    Run the main program.
+def main(args: list[str] | None = None) -> int:
+    """Run the main program.
 
     This function is executed when you type `keycut` or `python -m keycut`.
 
-    Arguments:
+    Parameters:
         args: Arguments passed from the command line.
 
     Returns:

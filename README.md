@@ -6,6 +6,11 @@
 
 ![logo](logo.jpg)
 
+[![gitpod](https://img.shields.io/badge/gitpod-workspace-blue.svg?style=flat)](https://gitpod.io/#https://github.com/pawamoy/keycut)
+[![gitter](https://badges.gitter.im/join%20chat.svg)](https://app.gitter.im/#/room/#keycut:gitter.im)
+
+A command line tool that helps you remembering ALL the numerous keyboard shortcuts of ALL your favorite programs.
+
 A command line tool that helps you remembering ALL the numerous keyboard shortcuts of ALL your favorite programs.
 
 KeyCut (for keyboard shortcut) is a command line tool
@@ -52,13 +57,12 @@ pyenv global system 3.6.12
 ## Installation
 
 With `pip`:
+
 ```bash
-python3.6 -m pip install keycut
+pip install keycut
 ```
 
 With [`pipx`](https://github.com/pipxproject/pipx):
-```bash
-python3.6 -m pip install --user pipx
 
 pipx install --python python3.6 keycut
 ```
