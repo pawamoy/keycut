@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import termcolor
 import yaml
 
@@ -39,8 +37,7 @@ def _color_match(line, positions, default):
 def _color(text, color):
     if color is None:
         return text
-    else:
-        return termcolor.colored(text, color)
+    return termcolor.colored(text, color)
 
 
 def as_colored_text(document):

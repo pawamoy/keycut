@@ -1,17 +1,15 @@
-# -*- coding: utf-8 -*-
-
 import json
 import time
 from threading import Thread
 
-from keycut import load, ui
-from keycut.search import search
+from keycut._internal import load, ui
+from keycut._internal.search import search
 
 
 class FirefoxWatcher(Thread):
     def run(self):
         # FIXME: do this dynamically
-        f = open("/home/pawantu/.mozilla/firefox/7vjr1dfd.default/" "sessionstore-backups/recovery.js", "r")
+        f = open("/home/pawantu/.mozilla/firefox/7vjr1dfd.default/sessionstore-backups/recovery.js")
         jdata = json.loads(f.read())
         f.close()
         tab_number = jdata["windows"][0]["selected"]
@@ -67,7 +65,7 @@ class WindowFocusWatcher(Thread):
         # ).stdout.read().decode().rstrip('\n')
 
     def run(self):
-        wid_command = "xprop -root | grep _NET_ACTIVE_WINDOW\(WINDOW\) | " 'grep -o "0x.*"'
+        wid_command = r"xprop -root | grep _NET_ACTIVE_WINDOW\(WINDOW\) | " 'grep -o "0x.*"'
         pid_command = 'xprop -id %s | grep _NET_WM_PID | grep -o "[0-9]*"'
         name_command = "cat /proc/%s/comm"
         cmdline_command = "cat /proc/%s/cmdline"
