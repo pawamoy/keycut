@@ -15,18 +15,3 @@
 # WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-"""Entry-point module, in case you use `python -m keycut`.
-
-Why does this file exist, and why `__main__`? For more info, read:
-
-- https://www.python.org/dev/peps/pep-0338/
-- https://docs.python.org/3/using/cmdline.html#cmdoption-m
-"""
-
-import sys
-
-from keycut._internal.cli import main
-
-if __name__ == "__main__":
-    sys.exit(main(sys.argv[1:]))

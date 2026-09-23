@@ -1,5 +1,5 @@
-# Changes here will be overwritten by Copier
-_commit: 0.1.0
+# Changes here will be overwritten by Copier.
+_commit: 1.14.0
 _src_path: gh:pawamoy/copier-uv
 author_email: dev@pawamoy.fr
 author_fullname: Timothée Mazzucotelli
@@ -7,10 +7,8 @@ author_username: pawamoy
 copyright_date: '2015'
 copyright_holder: Timothée Mazzucotelli
 copyright_holder_email: dev@pawamoy.fr
-copyright_license: ISC License
-insiders: false
-project_description: A command line tool that helps you remembering ALL the numerous
-    keyboard shortcuts of ALL your favorite programs.
+copyright_license: ISC
+project_description: A command line tool that helps you remembering ALL the numerous keyboard shortcuts of ALL your favorite programs.
 project_name: keycut
 python_package_command_line_name: keycut
 python_package_distribution_name: keycut

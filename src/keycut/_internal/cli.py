@@ -1,4 +1,20 @@
-"""Module that contains the command line application."""
+# SPDX-License-Identifier: ISC
+#
+# ISC License
+#
+# Copyright (c) 2015, Timothée Mazzucotelli and contributors
+#
+# Permission to use, copy, modify, and/or distribute this software for any
+# purpose with or without fee is hereby granted, provided that the above
+# copyright notice and this permission notice appear in all copies.
+#
+# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+# WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+# ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+# WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+# ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+# OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 # Why does this file exist, and why not put this in `__main__`?
 #
@@ -17,9 +33,7 @@ import argparse
 import sys
 from typing import Any
 
-from keycut import debug, load, ui
-from keycut.search import search
-from keycut.utils import print_err
+from keycut._internal import debug
 
 
 class _DebugInfo(argparse.Action):
@@ -27,7 +41,7 @@ class _DebugInfo(argparse.Action):
         super().__init__(nargs=nargs, **kwargs)
 
     def __call__(self, *args: Any, **kwargs: Any) -> None:  # noqa: ARG002
-        debug.print_debug_info()
+        debug._print_debug_info()
         sys.exit(0)
 
 
@@ -38,7 +52,7 @@ def get_parser() -> argparse.ArgumentParser:
         An argparse parser.
     """
     parser = argparse.ArgumentParser(prog="keycut")
-    parser.add_argument("-V", "--version", action="version", version=f"%(prog)s {debug.get_version()}")
+    parser.add_argument("-V", "--version", action="version", version=f"%(prog)s {debug._get_version()}")
     parser.add_argument("--debug-info", action=_DebugInfo, help="Print debug information.")
     return parser
 
@@ -55,15 +69,6 @@ def main(args: list[str] | None = None) -> int:
         An exit code.
     """
     parser = get_parser()
-    args = parser.parse_args(args=args)
-
-    document = load.from_yaml(args.app)
-
-    if document:
-        if args.pattern:
-            document = search(document, args.pattern)
-        ui.reload(document, clear=False)
-    else:
-        print_err("Document not found: %s" % args.app)
-
+    opts = parser.parse_args(args=args)
+    print(opts)
     return 0
