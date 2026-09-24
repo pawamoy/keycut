@@ -24,7 +24,7 @@ A command line tool that helps you remembering ALL the numerous keyboard shortcu
 from __future__ import annotations
 
 from keycut._internal.cli import get_parser, main
-from keycut._internal.load import DIRECTORY, check, from_yaml, grep, isfile
+from keycut._internal.load import DIRECTORY, check, from_yaml, grep
 from keycut._internal.render import (
     ACTION_COLOR,
     CATEGORY_COLOR,
@@ -44,11 +44,11 @@ from keycut._internal.search import (
     word_in_keys,
     word_search,
 )
-from keycut._internal.ui import UI_COMMANDS, UI_DOCUMENT, reload
+from keycut._internal.types import Document
+from keycut._internal.ui import UI_COMMANDS, reload
 from keycut._internal.utils import print_err
 from keycut._internal.watch import (
     FileWatcher,
-    FirefoxWatcher,
     WindowFocusWatcher,
     XdotoolWatcher,
 )
@@ -60,9 +60,8 @@ __all__: list[str] = [
     "KEY_COLOR",
     "MATCH_COLOR",
     "UI_COMMANDS",
-    "UI_DOCUMENT",
+    "Document",
     "FileWatcher",
-    "FirefoxWatcher",
     "WindowFocusWatcher",
     "XdotoolWatcher",
     "as_colored_text",
@@ -75,7 +74,6 @@ __all__: list[str] = [
     "in_action",
     "in_category",
     "in_keys",
-    "isfile",
     "main",
     "print_err",
     "reload",

@@ -1,39 +1,52 @@
-import json
+# SPDX-License-Identifier: ISC
+#
+# ISC License
+#
+# Copyright (c) 2015, Timothée Mazzucotelli and contributors
+#
+# Permission to use, copy, modify, and/or distribute this software for any
+# purpose with or without fee is hereby granted, provided that the above
+# copyright notice and this permission notice appear in all copies.
+#
+# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+# WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+# ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+# WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+# ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+# OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+import logging
 import time
+from pathlib import Path
 from threading import Thread
+from typing import Any
 
 from keycut._internal import load, ui
 from keycut._internal.search import search
 
-
-class FirefoxWatcher(Thread):
-    def run(self):
-        # FIXME: do this dynamically
-        f = open("/home/pawantu/.mozilla/firefox/7vjr1dfd.default/sessionstore-backups/recovery.js")
-        jdata = json.loads(f.read())
-        f.close()
-        tab_number = jdata["windows"][0]["selected"]
-        for win in jdata.get("windows"):
-            for tab in win.get("tabs"):
-                i = tab.get("index") - 1
-                if i == tab_number:
-                    current_url = tab.get("entries")[i].get("url")
+_logger = logging.getLogger("keycut")
 
 
 class XdotoolWatcher(Thread):
-    def __init__(self):
+    """Watch the focused window name for application shortcuts."""
+
+    def __init__(self) -> None:
         Thread.__init__(self)
         self.name = ""
+        """Last window name with a loaded shortcut document."""
         self.sleep = 0.2
+        """Seconds between checks of the focused window."""
 
     @staticmethod
-    def _run_command(command):
+    def _run_command(command: str) -> Any:
         pass
         # return Popen(
         #     command, shell=True, stdout=PIPE
         # ).stdout.read().decode().rstrip('\n')
 
-    def run(self):
+    def run(self) -> None:
+        """Poll the focused window and display shortcuts when its name changes."""
         name_command = "xdotool getwindowfocus getwindowname"
 
         while True:
@@ -45,27 +58,32 @@ class XdotoolWatcher(Thread):
                     self.name = name
                     ui.reload(document)
                 else:
-                    print("Not found:")
-                    print(name)
+                    _logger.error(f"Not found: {name}")
             time.sleep(self.sleep)
 
 
 class WindowFocusWatcher(Thread):
-    def __init__(self):
+    """Watch the focused process for application shortcuts."""
+
+    def __init__(self) -> None:
         Thread.__init__(self)
         self.name = ""
+        """Last process name with a loaded shortcut document."""
         self.cmdline = ""
+        """Last process command line with a loaded shortcut document."""
         self.sleep = 0.2
+        """Seconds between checks of the focused process."""
 
     @staticmethod
-    def _run_command(command):
+    def _run_command(command: str) -> Any:
         pass
         # return Popen(
         #     command, shell=True, stdout=PIPE
         # ).stdout.read().decode().rstrip('\n')
 
-    def run(self):
-        wid_command = r"xprop -root | grep _NET_ACTIVE_WINDOW\(WINDOW\) | " 'grep -o "0x.*"'
+    def run(self) -> None:
+        """Poll the focused process and display shortcuts when it changes."""
+        wid_command = "xprop -root | grep -F '_NET_ACTIVE_WINDOW(WINDOW)' | grep -o '0x.*'"
         pid_command = 'xprop -id %s | grep _NET_WM_PID | grep -o "[0-9]*"'
         name_command = "cat /proc/%s/comm"
         cmdline_command = "cat /proc/%s/cmdline"
@@ -83,21 +101,28 @@ class WindowFocusWatcher(Thread):
                     self.cmdline = cmdline
                     ui.reload(document)
                 else:
-                    print("Not found:")
-                    print(wid, pid)
-                    print(name, cmdline)
+                    _logger.error("Not found: {wid} {pid} {name} {cmdline}")
             time.sleep(self.sleep)
 
 
 class FileWatcher(Thread):
-    def __init__(self, file):
+    """Watch a command file and display shortcuts for new commands.
+
+    Creating the watcher clears the command file.
+    """
+
+    def __init__(self, file: str) -> None:
         Thread.__init__(self)
         self.file = file
+        """Path to the command file."""
         self.current = ""
+        """Last command used to load a shortcut document."""
         self.write("")
         self.sleep = 0.2
+        """Seconds between reads of the command file."""
 
-    def run(self):
+    def run(self) -> None:
+        """Poll the command file and display shortcuts for new commands."""
         while True:
             line = self.read()
             if line:
@@ -105,7 +130,7 @@ class FileWatcher(Thread):
                 command = words[0]
                 if len(words) > 1:
                     pattern = words[1]
-                    current = "%s %s" % (command, pattern)
+                    current = f"{command} {pattern}"
                 else:
                     current = command
                     pattern = False
@@ -118,10 +143,16 @@ class FileWatcher(Thread):
                         ui.reload(document)
             time.sleep(self.sleep)
 
-    def read(self):
-        with open(self.file) as f:
+    def read(self) -> str:
+        """Return the first line of the command file without trailing whitespace."""
+        with Path(self.file).open() as f:
             return f.readline().rstrip()
 
-    def write(self, command):
-        with open(self.file, "w") as f:
-            f.write("%s\n" % command)
+    def write(self, command: str) -> None:
+        """Write a command and newline to the command file.
+
+        Args:
+            command: Command to store, replacing the file's contents.
+        """
+        with Path(self.file).open("w") as f:
+            f.write(f"{command}\n")

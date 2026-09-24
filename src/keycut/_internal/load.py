@@ -1,35 +1,80 @@
+# SPDX-License-Identifier: ISC
+#
+# ISC License
+#
+# Copyright (c) 2015, Timothée Mazzucotelli and contributors
+#
+# Permission to use, copy, modify, and/or distribute this software for any
+# purpose with or without fee is hereby granted, provided that the above
+# copyright notice and this permission notice appear in all copies.
+#
+# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+# WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+# ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+# WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+# ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+# OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
 import os
+from pathlib import Path
 
 import yaml
 
-DIRECTORY = os.environ.get("KEYCUT_DATA", "keycut-data/default")
+from keycut._internal.types import Document
+
+DIRECTORY = Path(os.getenv("KEYCUT_DATA", "keycut-data/default"))
+"""Directory containing application shortcut files."""
 
 
-def grep(cmdline):
+def grep(cmdline: str) -> Path | None:
+    """Find a shortcut file whose suffix appears in a command line.
+
+    Args:
+        cmdline: Command line to search, ignoring case.
+
+    Returns:
+        The matching file path, or `None` if no file matches.
+    """
     cmdline = cmdline.lower()
-    for file in os.listdir(DIRECTORY):
-        app = os.path.splitext(file.lower())[0]
+    for file in DIRECTORY.iterdir():
+        app = file.suffix.lower()
         if app in cmdline:
-            return os.path.join(DIRECTORY, file)
+            return DIRECTORY / file
     return None
 
 
-def isfile(file):
-    return os.path.isfile(file)
+def check(name: str, path: Path = DIRECTORY) -> tuple[Path, bool]:
+    """Get the path to a shortcut file and check whether it exists.
+
+    Args:
+        name: Application name without the `.yml` suffix.
+        path: Directory containing the shortcut file.
+
+    Returns:
+        The file path and whether it is a file.
+    """
+    file = path.joinpath(name).with_suffix(".yml")
+    return file, file.is_file()
 
 
-def check(name, path=DIRECTORY):
-    file = os.path.join(path, name) + ".yml"
-    return file, isfile(file)
+def from_yaml(app: str, command_line: str | None = None) -> Document | None:
+    """Load an application's shortcuts from YAML.
 
+    Args:
+        app: Application name used to locate the YAML file.
+        command_line: Command line used to find a fallback file when the
+            application's file is missing.
 
-def from_yaml(app, command_line=None):
+    Returns:
+        Shortcut entries, or `None` if no fallback file matches.
+    """
     file, exist = check(app)
     if not exist and command_line is not None:
         file = grep(command_line)
         if not file:
             return None
-    with open(file) as f:
+    with Path(file).open() as f:
         doc = yaml.safe_load(f)
     if isinstance(doc, dict):
         document = [dict(category=key, **v) for key, value in doc.items() for v in value]

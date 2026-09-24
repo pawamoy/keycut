@@ -16,13 +16,7 @@
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-import sys
+from typing import Any
 
-
-def print_err(message: str) -> None:
-    """Write a message to standard error.
-
-    Args:
-        message: Text to write without an added newline.
-    """
-    sys.stderr.write(message)
+Document = list[dict[str, Any]]
+"""Shortcut entries with fields such as `category`, `action`, and `keys`."""
