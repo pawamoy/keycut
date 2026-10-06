@@ -5,6 +5,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.3.1](https://github.com/pawamoy/keycut/releases/tag/0.3.1) - 2026-10-06
+
+<small>[Compare with 0.3.0](https://github.com/pawamoy/keycut/compare/0.3.0...0.3.1)</small>
+
+### Build
+
+- Drop support for Python 3.10 ([5492159](https://github.com/pawamoy/keycut/commit/5492159bb2bd0f0b7498d1cb67d0df1b1e5319e8) by Timothée Mazzucotelli).
+
+### Code Refactoring
+
+- Move modules to internal folder ([7c93395](https://github.com/pawamoy/keycut/commit/7c93395ddd5e25a468aa5f6e7045211edea0db63) by Timothée Mazzucotelli).
+
 ## [0.3.0](https://github.com/pawamoy/keycut/tags/0.3.0) - 2019-03-10
 
 <small>[Compare with 0.2.1](https://github.com/pawamoy/keycut/compare/0.2.1...0.3.0)</small>
@@ -51,4 +63,3 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Fix README syntax ([5ffa491](https://github.com/pawamoy/keycut/commit/5ffa4913ca05f58c1aee38ce8668a3f3b4a05173)).
 - Fix redundancy and badly colored keys ([20c55d9](https://github.com/pawamoy/keycut/commit/20c55d984647ff59b9a069103d1f8f4012b3f546)).
-
